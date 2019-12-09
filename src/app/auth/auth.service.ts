@@ -36,7 +36,7 @@ export class AuthService {
 
   logIn(authRequest: AuthRequest): Observable<User> {
 
-    const authUrl = 'https://manevent.herokuapp.com/api/auth';
+    const authUrl = 'https://manevent.herokuapp.com/login';
     return this.http.post<AuthResponse>(authUrl, authRequest).pipe(
       map(auth => {
         this.authSource.next(auth);
