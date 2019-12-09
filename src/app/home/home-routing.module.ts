@@ -6,8 +6,8 @@ import { HomePage } from './home.page';
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
-  },
+    component: HomePage,
+    children: [
   {
     path: 'favorites',
     loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
@@ -20,6 +20,8 @@ const routes: Routes = [
     path: 'event',
     loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
   }
+]
+}
 ];
 
 @NgModule({
