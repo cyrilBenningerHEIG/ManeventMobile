@@ -39,6 +39,7 @@ export class AuthService {
     const authUrl = 'https://manevent.herokuapp.com/login';
     return this.http.post<AuthResponse>(authUrl, authRequest).pipe(
       map(auth => {
+        console.log(auth);
         this.authSource.next(auth);
         console.log(`User ${auth.user.name} logged in`);
         return auth.user;
