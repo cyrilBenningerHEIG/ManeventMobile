@@ -6,8 +6,27 @@
 
 <ion-content>
   <form #greetingForm="ngForm" (submit)="displayGreeting(greetingForm)">
-    <ion-input type="text" placeholder="Who are you?" [(ngModel)]="greeting"
-      name="greeting" [notIn]="['Bob']" required #greetingInput="ngModel"></ion-input>
+    <ion-list>
+
+          <ion-item>
+              <ion-label position="floating">Userame</ion-label>
+              <ion-input inputmode="text" #username="ngModel" required="true" name="username"
+                [(ngModel)]="User.name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input inputmode="text" #name="ngModel" required="true" name="email"
+                  [(ngModel)]="User.email"></ion-input>
+              </ion-item>
+
+          <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input inputmode="text" #password="ngModel" required="true" type="password" name="password"
+                [(ngModel)]="User.password"></ion-input>
+            </ion-item>
+
+    </ion-list>
     <ion-button type="submit" [disabled]="greetingForm.invalid">Submit</ion-button>
   </form>
 
