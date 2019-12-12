@@ -7,12 +7,18 @@
 <ion-content>
   <form #greetingForm="ngForm" (submit)="displayGreeting(greetingForm)">
     <ion-input type="text" placeholder="Who are you?" [(ngModel)]="greeting"
-      name="greeting" required></ion-input>
-    <ion-button type="submit">Submit</ion-button>
+      name="greeting" [notIn]="['Bob']" required #greetingInput="ngModel"></ion-input>
+    <ion-button type="submit" [disabled]="greetingForm.invalid">Submit</ion-button>
   </form>
 
   <p *ngIf="displayedGreeting">
     Hello {{ displayedGreeting }}
+  </p>
+  <p *ngIf="greetingInput.hasError('required') && greetingInput.dirty">
+    Name is required
+  </p>
+  <p *ngIf="greetingInput.hasError('notIn') && greetingInput.dirty">
+    Name is forbidden
   </p>
 
 </ion-content>
