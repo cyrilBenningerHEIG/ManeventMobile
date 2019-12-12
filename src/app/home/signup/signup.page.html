@@ -5,5 +5,14 @@
 </ion-header>
 
 <ion-content>
+  <form #greetingForm="ngForm" (submit)="displayGreeting(greetingForm)">
+    <ion-input type="text" placeholder="Who are you?" [(ngModel)]="greeting"
+      name="greeting" required></ion-input>
+    <ion-button type="submit">Submit</ion-button>
+  </form>
+
+  <p *ngIf="displayedGreeting">
+    Hello {{ displayedGreeting }}
+  </p>
 
 </ion-content>

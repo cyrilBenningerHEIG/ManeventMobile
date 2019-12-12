@@ -17,4 +17,11 @@ import { SignupPage } from './signup.page';
   ],
   declarations: [SignupPage]
 })
-export class SignupPageModule {}
+export class SignupPageModule {
+  greeting: string;
+  displayedGreeting: string;
+    displayGreeting() {
+    this.displayedGreeting = this.greeting;
+    console.log('Greeting displayed');
+  }
+}
