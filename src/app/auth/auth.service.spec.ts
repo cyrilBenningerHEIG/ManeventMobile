@@ -36,7 +36,7 @@ export class AuthService {
 
   logIn(authRequest: AuthRequest): Observable<User> {
 
-    const authUrl = 'https://comem-travel-log-api.herokuapp.com/api/auth';
+    const authUrl = '/api/login';
     return this.http.post<AuthResponse>(authUrl, authRequest).pipe(
       map(auth => {
         this.authSource.next(auth);

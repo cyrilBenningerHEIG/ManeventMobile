@@ -1,5 +1,5 @@
 export class User {
     name: string;
     email:string;
-    password;
+    password:string;
     }
