@@ -44,8 +44,8 @@
                       </ion-item>
                       <ion-item>
                           <ion-label position="floating">Public</ion-label>
-                          <ion-input inputmode="text" #eventpublic="ngModel" required="true" name="eventpublic"
-                            [(ngModel)]="Event.public"></ion-input>
+                          <ion-toggle #eventpublic="ngModel" required="true" name="eventpublic"
+                          [(ngModel)]="Event.public"></ion-toggle>
                         </ion-item>
         </ion-list>
         <ion-button type="submit" [disabled]="greetingForm.invalid">Submit</ion-button>
