@@ -18,7 +18,7 @@ export class HomePage {
 
   constructor() {
     this.tabs = [
-      { title: 'Events', icon: 'list', path: '/'},
+      { title: 'Events', icon: 'list', path: 'event'}, 
       { title: 'Favorites', icon: 'heart', path: 'favorites' },
       { title: 'Profil', icon: 'contact', path: 'signup'}
     ];
