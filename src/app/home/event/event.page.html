@@ -21,50 +21,24 @@
   </form>
 
   <ion-button expand="block">Search</ion-button>
-  <ion-card>
+  <ion-card *ngFor="let event of events">
     <img src="https://via.placeholder.com/250x150" />
     <ion-card-header>
-      <ion-card-subtitle>Lausanne </ion-card-subtitle>
-      <ion-card-title>TedxLausanneWomen</ion-card-title>
+      <ion-card-subtitle>{{event.adress}} </ion-card-subtitle>
+      <ion-card-title>{{event.name}}</ion-card-title>
       <ion-card-subtitle class="event-date-time">
         <ion-text class="event-date">
           <ion-icon name="calendar"></ion-icon>
-          5 Déc. 2019
+          {{event.date}}
         </ion-text>
         <ion-text class="event-time">
           <ion-icon name="clock"></ion-icon>
-          18h
+          {{event.time}}
         </ion-text>
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-text>TEDxLausanneWomen 2019 will be no less than a joyful, thought-provoking celebration of smart, savvy and diverse dynamism. </ion-text>
+      <ion-text>{{event.description}} </ion-text>
     </ion-card-content>
   </ion-card>
-
-  <ion-card>
-  <ion-card-header>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    <ion-card-title>Card Title</ion-card-title>
-    <ion-card-subtitle class="event-date-time">
-      <ion-text class="event-date">
-        <ion-icon name="calendar"></ion-icon>
-        15 Déc. 2019
-      </ion-text>
-      <ion-text class="event-time">
-        <ion-icon name="clock"></ion-icon>
-        20h
-      </ion-text>
-    </ion-card-subtitle>
-  </ion-card-header>
-
-  <ion-card-content>
-    Keep close to Nature's heart... and break clear away, once in awhile,
-    and climb a mountain or spend a week in the woods. Wash your spirit clean.
-  </ion-card-content>
-</ion-card>
-
-
-
-
 </ion-content>
