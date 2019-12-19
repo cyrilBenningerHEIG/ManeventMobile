@@ -16,7 +16,7 @@
     
                 <ion-item>
                     <ion-label position="floating">Date</ion-label>
-                    <ion-input inputmode="text" #eventdate="ngModel" required="true" name="eventdate"
+                    <ion-input oninput="handleDataValue(event)" #eventdate="ngModel" required type="date" name="eventdate"
                       [(ngModel)]="Event.date"></ion-input>
                   </ion-item>
     
