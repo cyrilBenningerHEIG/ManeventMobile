@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class EventPage implements OnInit {
   events: Event[];
-  NewEvent: Event;
   EventError: boolean;
   constructor(private http: HttpClient, private router: Router) {
 
