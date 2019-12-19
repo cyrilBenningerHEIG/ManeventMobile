@@ -5,39 +5,39 @@
 </ion-header>
 
 <ion-content>
-  <form #greetingForm="ngForm" (submit)="displayGreeting(greetingForm)">
+  <form #userForm="ngForm" (submit)="onSubmit(userForm)">
     <ion-list>
 
-          <ion-item>
-              <ion-label position="floating">Userame</ion-label>
-              <ion-input inputmode="text" #username="ngModel" required="true" name="username"
-                [(ngModel)]="User.name"></ion-input>
-            </ion-item>
+      <ion-item>
+        <ion-label position="floating">Userame</ion-label>
+        <ion-input inputmode="text" #username="ngModel" required="true" name="name" [(ngModel)]="newUser.name">
+        </ion-input>
+      </ion-item>
 
-            <ion-item>
-                <ion-label position="floating">Email</ion-label>
-                <ion-input inputmode="text" #name="ngModel" required="true" name="email"
-                  [(ngModel)]="User.email"></ion-input>
-              </ion-item>
+      <!-- Error message displayed if the username is invalid -->
+      <ion-item lines="none" *ngIf="username.invalid && username.touched">
+        <ion-text color='danger'>Username is required.</ion-text>
+      </ion-item>
 
-          <ion-item>
-              <ion-label position="floating">Password</ion-label>
-              <ion-input inputmode="text" #password="ngModel" required="true" type="password" name="password"
-                [(ngModel)]="User.password"></ion-input>
-            </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input inputmode="email" #name="ngModel" required="true" name="email" [(ngModel)]="newUser.email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input inputmode="text" #password="ngModel" required="true" type="password" name="password"
+          [(ngModel)]="newUser.password"></ion-input>
+      </ion-item>
+
+      <!-- Error message displayed if the password is invalid -->
+      <ion-item lines="none" *ngIf="password.invalid && password.touched">
+        <ion-text color='danger'>Password is required.</ion-text>
+      </ion-item>
 
     </ion-list>
-    <ion-button type="submit" [disabled]="greetingForm.invalid">Submit</ion-button>
+    <ion-button type="submit" expand="block" [disabled]="userForm.invalid">Submit</ion-button>
   </form>
-
-  <p *ngIf="displayedGreeting">
-    Hello {{ displayedGreeting }}
-  </p>
-  <p *ngIf="greetingInput.hasError('required') && greetingInput.dirty">
-    Name is required
-  </p>
-  <p *ngIf="greetingInput.hasError('notIn') && greetingInput.dirty">
-    Name is forbidden
-  </p>
 
 </ion-content>
