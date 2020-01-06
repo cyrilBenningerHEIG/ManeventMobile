@@ -19,8 +19,10 @@ export class EventPage implements OnInit {
 
   ngOnInit() {
     this.GetData();
-    
+  }
 
+  onSubmit(form: NgForm){
+    console.log("salut");
   }
   GetData(){
     const AddUserURL = '/api/events';

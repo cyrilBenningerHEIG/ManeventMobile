@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
-  <form onsubmit="processForm(event)">
+  <form #filterForm="ngForm" (submit)="onSubmit(filterForm)">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item>
         <ion-label position="stacked">City<ion-text color="danger">*</ion-text></ion-label>
@@ -17,9 +17,9 @@
       </ion-item>
 
     </ion-list>
-
+    <ion-button type="submit" expand="block" [disabled]="filterForm.invalid">Log in</ion-button>
   </form>
-  <ion-button expand="block">Search</ion-button>
+ 
     
   <ion-card *ngFor="let event of events">
     <img src="https://via.placeholder.com/250x150" />
