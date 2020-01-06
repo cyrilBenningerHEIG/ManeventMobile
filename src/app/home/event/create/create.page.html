@@ -16,8 +16,8 @@
     
                 <ion-item>
                     <ion-label position="floating">Date</ion-label>
-                    <ion-input inputmode="text" #eventdate="ngModel" required type="date" name="eventdate"
-                      [(ngModel)]="newEvent.date"></ion-input>
+                    <ion-datetime displayFormat="DD MMM YYYY" #eventdate="ngModel" required type="true" name="eventdate"
+                      [(ngModel)]="newEvent.date"></ion-datetime>
                   </ion-item>
     
               <ion-item>
@@ -34,8 +34,7 @@
 
                   <ion-item>
                       <ion-label position="floating">Time</ion-label>
-                      <ion-input inputmode="text" #eventtime="ngModel" required="true" name="eventtime"
-                        [(ngModel)]="newEvent.time"></ion-input>
+                        <ion-datetime displayFormat="HH:mm" #eventtime="ngModel" name="eventtime"[(ngModel)]="newEvent.time"></ion-datetime>
                     </ion-item>
                     <ion-item>
                         <ion-label position="floating">Description</ion-label>
@@ -43,7 +42,7 @@
                           [(ngModel)]="newEvent.description"></ion-input>
                       </ion-item>
                       <ion-item>
-                          <ion-label position="floating">Public</ion-label>
+                          <ion-label>Public</ion-label>
                           <ion-toggle #eventpublic="ngModel" required="true" name="eventpublic"
                           [(ngModel)]="newEvent.public"></ion-toggle>
                         </ion-item>
