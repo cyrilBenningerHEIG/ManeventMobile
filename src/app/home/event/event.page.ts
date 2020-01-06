@@ -19,7 +19,6 @@ export class EventPage implements OnInit {
 
   ngOnInit() {
     this.GetData();
-    
 
   }
   GetData(){
