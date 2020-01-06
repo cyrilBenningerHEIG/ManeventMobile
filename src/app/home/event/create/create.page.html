@@ -5,49 +5,49 @@
 </ion-header>
 
 <ion-content>
-    <form #greetingForm="ngForm" (submit)="displayGreeting(greetingForm)">
+    <form #greetingForm="ngForm" (submit)="onSubmit(userForm)">
         <ion-list>
     
               <ion-item>
                   <ion-label position="floating">Event Name</ion-label>
-                  <ion-input inputmode="text" #eventname="ngModel" required="true" name="eventname"
-                    [(ngModel)]="Event.name"></ion-input>
+                  <ion-input inputmode="text" #eventname="ngModel" required="true" name="name"
+                    [(ngModel)]="newEvent.name"></ion-input>
                 </ion-item>
     
                 <ion-item>
                     <ion-label position="floating">Date</ion-label>
-                    <ion-input inputmode="text" #eventdate="ngModel" required="true" name="eventdate"
-                      [(ngModel)]="Event.date"></ion-input>
+                    <ion-input inputmode="text" #eventdate="ngModel" required type="date" name="eventdate"
+                      [(ngModel)]="newEvent.date"></ion-input>
                   </ion-item>
     
               <ion-item>
                   <ion-label position="floating">Location</ion-label>
                   <ion-input inputmode="text" #eventlocation="ngModel" required="true" name="eventlocation"
-                    [(ngModel)]="Event.location"></ion-input>
+                    [(ngModel)]="newEvent.location"></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label position="floating">Image</ion-label>
                     <ion-input inputmode="text" #eventimage="ngModel" required="true" name="eventimage"
-                      [(ngModel)]="Event.image"></ion-input>
+                      [(ngModel)]="newEvent.image"></ion-input>
                   </ion-item>
 
                   <ion-item>
                       <ion-label position="floating">Time</ion-label>
                       <ion-input inputmode="text" #eventtime="ngModel" required="true" name="eventtime"
-                        [(ngModel)]="Event.time"></ion-input>
+                        [(ngModel)]="newEvent.time"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label position="floating">Description</ion-label>
                         <ion-input inputmode="text" #eventdescription="ngModel" required="true" name="eventdescription"
-                          [(ngModel)]="Event.description"></ion-input>
+                          [(ngModel)]="newEvent.description"></ion-input>
                       </ion-item>
                       <ion-item>
                           <ion-label position="floating">Public</ion-label>
-                          <ion-input inputmode="text" #eventpublic="ngModel" required="true" name="eventpublic"
-                            [(ngModel)]="Event.public"></ion-input>
+                          <ion-toggle #eventpublic="ngModel" required="true" name="eventpublic"
+                          [(ngModel)]="newEvent.public"></ion-toggle>
                         </ion-item>
         </ion-list>
-        <ion-button type="submit" [disabled]="greetingForm.invalid">Submit</ion-button>
+        <ion-button type="submit" >Submit</ion-button>
       </form>
 </ion-content>

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CreatePageRoutingModule } from './create-routing.module';
 
 import { CreatePage } from './create.page';
+import { Event } from '../../../models/event';
 
 @NgModule({
   imports: [
@@ -17,4 +18,9 @@ import { CreatePage } from './create.page';
   ],
   declarations: [CreatePage]
 })
-export class CreatePageModule {}
+export class CreatePageModule {
+  newEvent: Event;
+  constructor() {
+    this.newEvent = new Event();
+  }
+}

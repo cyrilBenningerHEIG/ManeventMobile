@@ -3,6 +3,7 @@
     <ion-title>Favorites</ion-title>
   </ion-toolbar>
 </ion-header>
+<<<<<<< HEAD
 
 <ion-content>
   <ion-card>
@@ -18,10 +19,27 @@
         <ion-text class="event-time">
           <ion-icon name="clock"></ion-icon>
           18h
+=======
+<ion-content fullscreen>
+  <ion-card *ngFor="let event of events">
+    <img src="https://via.placeholder.com/250x150" />
+    <ion-card-header>
+      <ion-card-subtitle>{{event.adress}} </ion-card-subtitle>
+      <ion-card-title>{{event.name}}</ion-card-title>
+      <ion-card-subtitle class="event-date-time">
+        <ion-text class="event-date">
+          <ion-icon name="calendar"></ion-icon>
+          {{event.date}}
+        </ion-text>
+        <ion-text class="event-time">
+          <ion-icon name="clock"></ion-icon>
+          {{event.time}}
+>>>>>>> 3051b2c52afa3d6b0cc3d0c17bc4fde3ea62782f
         </ion-text>
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
+<<<<<<< HEAD
       <ion-text>TEDxLausanneWomen 2019 will be no less than a joyful, thought-provoking celebration of smart, savvy and diverse dynamism. </ion-text>
     </ion-card-content>
     <ion-item href="#">
@@ -40,4 +58,9 @@
 
 
 
+=======
+      <ion-text>{{event.description}} </ion-text>
+    </ion-card-content>
+  </ion-card>
+>>>>>>> 3051b2c52afa3d6b0cc3d0c17bc4fde3ea62782f
 </ion-content>
