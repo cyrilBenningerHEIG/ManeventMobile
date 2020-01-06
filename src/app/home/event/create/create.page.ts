@@ -19,7 +19,6 @@ export class CreatePage {
   onSubmit(form: NgForm) {
     // Do not do anything if the form is invalid.
     if (form.invalid) {
-      return;
     }
 
     const AddUserURL = '/api/events';
