@@ -3,23 +3,6 @@
     <ion-title>Favorites</ion-title>
   </ion-toolbar>
 </ion-header>
-<<<<<<< HEAD
-
-<ion-content>
-  <ion-card>
-    <img src="https://via.placeholder.com/250x150" />
-    <ion-card-header>
-      <ion-card-subtitle>Lausanne </ion-card-subtitle>
-      <ion-card-title>Meet-up</ion-card-title>
-      <ion-card-subtitle class="event-date-time">
-        <ion-text class="event-date">
-          <ion-icon name="calendar"></ion-icon>
-          5 Déc. 2019
-        </ion-text>
-        <ion-text class="event-time">
-          <ion-icon name="clock"></ion-icon>
-          18h
-=======
 <ion-content fullscreen>
   <ion-card *ngFor="let event of events">
     <img src="https://via.placeholder.com/250x150" />
@@ -34,33 +17,11 @@
         <ion-text class="event-time">
           <ion-icon name="clock"></ion-icon>
           {{event.time}}
->>>>>>> 3051b2c52afa3d6b0cc3d0c17bc4fde3ea62782f
         </ion-text>
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-<<<<<<< HEAD
-      <ion-text>TEDxLausanneWomen 2019 will be no less than a joyful, thought-provoking celebration of smart, savvy and diverse dynamism. </ion-text>
-    </ion-card-content>
-    <ion-item href="#">
-      <ion-icon name="heart" slot="start"></ion-icon>
-      <ion-label>Card Link Item 2</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="heart" slot="start"></ion-icon>
-      <ion-label>Card Link Item 2</ion-label>
-    </ion-item>
-
-  </ion-card>
-
-
-
-
-
-
-=======
       <ion-text>{{event.description}} </ion-text>
     </ion-card-content>
   </ion-card>
->>>>>>> 3051b2c52afa3d6b0cc3d0c17bc4fde3ea62782f
 </ion-content>
