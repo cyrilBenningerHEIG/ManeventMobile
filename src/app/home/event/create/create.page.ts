@@ -19,7 +19,7 @@ export class CreatePage {
   onSubmit(form: NgForm) {
     // Do not do anything if the form is invalid.
     if (form.invalid) {
-      return;
+      console.log("ta race");
     }
 
     const AddUserURL = '/api/events';
