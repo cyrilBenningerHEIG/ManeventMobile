@@ -23,24 +23,18 @@ export class EventPage implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log(form.form.value["cityName"]); //form.location
-    console.log(form.form.value["dataValue"]);
+    console.log(); //form.location
+    let params = new HttpParams()
+    .set("date",form.form.value["dataValue"])
+    .set("adress",form.form.value["cityName"])
+    this.GetData(params);
+    params.delete("date");
+    params.delete("adress");
 
-     if (form.invalid) {
-       return;
-      }
-
-     if (cityName){
-       return form.form.value["cityName"]
-     }
-
-     if (dataValue){
-       return form.form.value["dataValue"]
-     }
   }
-  GetData(){
+  GetData(params=new HttpParams()){
     const AddUserURL = '/api/events';
-    return this.http.get<Event[]>(AddUserURL).subscribe(result => {
+    return this.http.get<Event[]>(AddUserURL,{params}).subscribe(result => {
       this.events = result['data'];
     }, error => {});
   }
