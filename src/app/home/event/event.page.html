@@ -7,20 +7,20 @@
   <form #filterForm="ngForm" (submit)="onSubmit(filterForm)">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item>
-        <ion-label position="stacked">City<ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="text" oninput="handleCityValue(event)" placeholder="Lausanne"></ion-input>
+        <ion-label position="stacked">City</ion-label>
+        <ion-input  type="text"  id="cityName" class="form-control" name="cityName" placeholder="Lausanne" ngModel></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="stacked">Date<ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="date" oninput="handleDataValue(event)"></ion-input>
+        <ion-label position="stacked">Date</ion-label>
+        <ion-input  type="date" id="dataValue" class="form-control" name="dataValue" ngModel></ion-input>
       </ion-item>
 
     </ion-list>
     <ion-button type="submit" expand="block" [disabled]="filterForm.invalid">Search</ion-button>
   </form>
- 
-    
+
+
   <ion-card *ngFor="let event of events">
     <img src="https://via.placeholder.com/250x150" />
     <ion-fab-button color="danger"><ion-icon name="heart"></ion-icon></ion-fab-button>
