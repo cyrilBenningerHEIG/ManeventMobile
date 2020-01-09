@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,7 +14,7 @@ import { Event } from '../../../models/event';
 })
 export class CreatePage {
   newEvent: Event;
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private auth: AuthService, private http: HttpClient, private router: Router) {
     this.newEvent = new Event();
   }
   onSubmit(form: NgForm) {
