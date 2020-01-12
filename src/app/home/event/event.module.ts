@@ -8,6 +8,7 @@ import { EventPageRoutingModule } from './event-routing.module';
 
 import { EventPage } from './event.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
