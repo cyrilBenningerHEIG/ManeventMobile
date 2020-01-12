@@ -45,9 +45,16 @@ export class EventPage implements OnInit {
   GetData(params=new HttpParams()){
     const AddUserURL = '/api/events';
     return this.http.get<Event[]>(AddUserURL,{params}).subscribe(result => {
-      this.events = result['data'];
-    }, error => {});
-  }
+      let Allevents = result['data'];
+      console.log(Allevents);
+      this.events= Allevents.filter(function(x){return new Date(x.date)>=new Date()});
+      console.log(this.events);
+      this.events.sort(function(a, b){
+        return +new Date(a.date) - +new Date(b.date);
+      })
+  },err=>{}
+  )};
+  
 
 
 }
