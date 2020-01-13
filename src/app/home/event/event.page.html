@@ -19,6 +19,11 @@
     </ion-list>
     <ion-button type="submit" expand="block" [disabled]="filterForm.invalid">Search</ion-button>
   </form>
+  <div *ngIf="isAuth">
+    <ion-button type="button" routerLink="create" expand="block">Add</ion-button>
+  </div>
+  
+
 
   <ion-card *ngFor="let event of events">
     <ion-fab vertical="top" horizontal="end" slot="fixed">
