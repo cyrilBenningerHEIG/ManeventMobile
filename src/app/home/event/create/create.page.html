@@ -16,7 +16,7 @@
     
                 <ion-item>
                     <ion-label position="floating">Date</ion-label>
-                    <ion-datetime displayFormat="DD MMM YYYY" #eventdate="ngModel" required type="true" name="eventdate"
+                    <ion-datetime displayFormat="DD MMM YYYY" min=2020-01-01 max=2050-12-31 #eventdate="ngModel" required type="true" name="eventdate"
                       [(ngModel)]="newEvent.date"></ion-datetime>
                   </ion-item>
     
