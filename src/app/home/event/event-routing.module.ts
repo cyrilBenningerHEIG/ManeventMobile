@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   },
   {
-    path: 'one-event-layout',
+    path: 'event/:id',
     loadChildren: () => import('./one-event-layout/one-event-layout.module').then( m => m.OneEventLayoutPageModule)
   }
 ];

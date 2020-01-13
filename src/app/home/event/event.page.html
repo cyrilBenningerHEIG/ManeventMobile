@@ -23,7 +23,7 @@
     <ion-button type="button" routerLink="create" expand="block">Add</ion-button>
   </div>
 
-  <ion-card *ngFor="let event of events">
+  <ion-card [routerLink]="['event', event._id]" *ngFor="let event of events">
     <img src="https://via.placeholder.com/250x150" />
     <div *ngIf="isAuth">
       <ion-fab vertical="top" horizontal="end" slot="fixed">

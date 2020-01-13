@@ -12,6 +12,7 @@ export class OneEventLayoutPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

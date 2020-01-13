@@ -18,7 +18,7 @@ const routes: Routes = [
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   },
   {
-    path: 'event',
+    path: 'events',
     loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
   }
 ]
