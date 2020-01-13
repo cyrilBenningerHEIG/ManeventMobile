@@ -22,13 +22,13 @@
   <div *ngIf="isAuth">
     <ion-button type="button" routerLink="create" expand="block">Add</ion-button>
   </div>
-  
-
 
 
   <ion-card *ngFor="let event of events">
     <img src="https://via.placeholder.com/250x150" />
-    <ion-fab-button color="danger"><ion-icon name="heart"></ion-icon></ion-fab-button>
+    <div *ngIf="isAuth">
+      <ion-fab-button (click)="member(event._id)" color="danger"><ion-icon name="heart"></ion-icon></ion-fab-button>
+    </div>    
     <ion-card-header>
       <ion-card-subtitle>{{event.adress}} </ion-card-subtitle>
       <ion-card-title>{{event.name}}</ion-card-title>

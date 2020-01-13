@@ -33,14 +33,18 @@ export class EventPage implements OnInit {
     this.GetData(params);
     params.delete("date");
     params.delete("adress");
+  }
+  member(id){
+    console.log(id);
+    const MemberURL='/api/events/'+id+'/member'
+    return this.http.post(MemberURL,'').subscribe();
 
   }
   
   authenticated(){
     return this.auth.isAuthenticated().subscribe(isAuthenticated => {
       this.isAuth=isAuthenticated;
-    });
-    
+    });    
   }
   GetData(params=new HttpParams()){
     const AddUserURL = '/api/events';
