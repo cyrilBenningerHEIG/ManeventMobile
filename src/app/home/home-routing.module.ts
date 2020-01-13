@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { AuthGuard } from '../auth/auth.guard';
 import { HomePage } from './home.page';
 
 const routes: Routes = [
@@ -13,7 +13,8 @@ const routes: Routes = [
     loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
   },
   {
-    path: 'signup',
+    path: 'profil',
+    canActivate: [ AuthGuard ],
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   },
   {

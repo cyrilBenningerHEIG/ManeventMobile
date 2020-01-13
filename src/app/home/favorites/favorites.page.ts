@@ -20,32 +20,25 @@ export class FavoritesPage implements OnInit {
 
   ngOnInit() {
     this.GetData();
-    
-
   }
   GetUser(){
     return this.auth.getUser().subscribe(result=>{
       this.User=result;
     });
   }
+  CheckMember(event){
+    console.log(this.User);
+    return event['member']==this.User['name']
+  }
   GetData(){
     const AddUserURL = '/api/events';
     this.GetUser();
-    console.log(this.User);
     
-
     return this.http.get<Event[]>(AddUserURL).subscribe(result => {
       let Allevents = result['data'];
-      console.log(Allevents);
       this.events= Allevents.filter(function(x){return new Date(x.date)>=new Date()});
-      console.log(this.events);
-      console.log(this.events['0']['member']);
-      this.events=this.events.filter(function(x){
-        let member=x['member'];
-        member.forEach(element => {
-          element===""
-        });
-      })
+      let id = this.User['_id'];
+      this.events=this.events.filter(x=>x['member'].includes(id));      
       this.events.sort(function(a, b){
         return +new Date(a.date) - +new Date(b.date);
       })

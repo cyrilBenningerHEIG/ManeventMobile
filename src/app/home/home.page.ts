@@ -20,7 +20,7 @@ export class HomePage {
     this.tabs = [
       { title: 'Events', icon: 'list', path: 'event'},
       { title: 'My events', icon: 'heart', path: 'favorites' },
-      { title: 'Profil', icon: 'contact', path: 'signup'}
+      { title: 'Profil', icon: 'contact', path: 'profil'}
     ];
   }
 

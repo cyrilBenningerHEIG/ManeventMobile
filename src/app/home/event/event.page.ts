@@ -26,7 +26,6 @@ export class EventPage implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log(); //form.location
     let params = new HttpParams()
     .set("date",form.form.value["dataValue"])
     .set("adress",form.form.value["cityName"])
@@ -35,7 +34,6 @@ export class EventPage implements OnInit {
     params.delete("adress");
   }
   member(id){
-    console.log(id);
     const MemberURL='/api/events/'+id+'/member'
     return this.http.post(MemberURL,'').subscribe();
 
@@ -50,9 +48,7 @@ export class EventPage implements OnInit {
     const AddUserURL = '/api/events';
     return this.http.get<Event[]>(AddUserURL,{params}).subscribe(result => {
       let Allevents = result['data'];
-      console.log(Allevents);
       this.events= Allevents.filter(function(x){return new Date(x.date)>=new Date()});
-      console.log(this.events);
       this.events.sort(function(a, b){
         return +new Date(a.date) - +new Date(b.date);
       })
