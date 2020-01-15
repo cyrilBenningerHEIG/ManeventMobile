@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
+import { Event } from '../models/event';
 import { HttpClient } from '@angular/common/http';
 import {HttpParams} from "@angular/common/http";
 import { Observable } from 'rxjs';
@@ -15,6 +16,7 @@ import { map } from 'rxjs/operators';
 })
 export class ProfilPage implements OnInit {
   User: User;
+  Event: Event;
   constructor(private http: HttpClient, private router: Router,private auth: AuthService) { }
 
   ngOnInit() {
