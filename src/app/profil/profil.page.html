@@ -9,25 +9,25 @@
     <ion-avatar slot="start">
       <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
     </ion-avatar>
-    <ion-label>User</ion-label>
+    <ion-label>{{User?._id}}</ion-label>
   </ion-item>
   <ion-item>
     <ion-label>
-      Pseudo
+      {{User?.name}}
     </ion-label>
     <ion-icon name="contact" slot="end"></ion-icon>
   </ion-item>
   
   <ion-item>
     <ion-label>
-      E-mail
+      {{User?.email}}
     </ion-label>
     <ion-icon name="mail" slot="end"></ion-icon>
   </ion-item>
   
   <ion-item>
     <ion-label>
-      Password
+      *********
     </ion-label>
     <ion-icon name="build" slot="end"></ion-icon>
   </ion-item>

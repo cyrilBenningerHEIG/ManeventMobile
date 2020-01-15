@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Event } from '../models/event';
+import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
 import {HttpParams} from "@angular/common/http";
 import { Observable } from 'rxjs';
@@ -14,10 +14,17 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./profil.page.scss'],
 })
 export class ProfilPage implements OnInit {
-
-  constructor() { }
+  User: User;
+  constructor(private http: HttpClient, private router: Router,private auth: AuthService) { }
 
   ngOnInit() {
+    this.GetUser();
+  }
+  GetUser(){
+    return this.auth.getUser().subscribe(result=>{
+      console.log(result);
+      this.User=result;
+    });
   }
 
 }
