@@ -27,7 +27,7 @@ export class CreatePage {
     }
 
     const NominatimURL = "https://nominatim.openstreetmap.org/search?q=";
-    this.http.get(NominatimURL + this.newEvent["address"] + '&format=geojson&limit=1').subscribe(result => {
+    this.http.get(NominatimURL + this.newEvent["adress"] + '&format=geojson&limit=1').subscribe(result => {
       let geodata = result['features']['0']['geometry'];
 
       this.newEvent['location'] = {

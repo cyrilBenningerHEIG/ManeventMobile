@@ -7,15 +7,14 @@
     <img src="https://via.placeholder.com/150" />
     <ion-card-header>
       <ion-card-subtitle>some tag here</ion-card-subtitle>
-      <ion-card-title>Event Name</ion-card-title>
+      <ion-card-title>{{events?.name}}</ion-card-title>
       <ion-chip>
         <ion-icon name="pin"></ion-icon>
-        <ion-label>Rue de Pins, 33, 1007 Lausanne</ion-label>
+        <ion-label>{{events?.adress}}</ion-label>
       </ion-chip>
     </ion-card-header>
     <ion-card-content>
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-    </ion-card-content>
+        {{events?.description}}</ion-card-content>
   </ion-card>
 
   <ion-button expand="block">Show Chat</ion-button>

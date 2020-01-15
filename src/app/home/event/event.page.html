@@ -23,13 +23,15 @@
     <ion-button type="button" routerLink="create" expand="block">Add</ion-button>
   </div>
 
-  <ion-card [routerLink]="['event', event._id]" *ngFor="let event of events">
+  <ion-card  *ngFor="let event of events">
+      <div *ngIf="isAuth">
+          <ion-fab vertical="top" horizontal="end" slot="fixed">
+          <ion-fab-button (click)="member(event._id)" color="danger"><ion-icon name="add"></ion-icon></ion-fab-button>
+          </ion-fab>
+        </div>
+        <div [routerLink]="['event', event._id]">
     <img src="https://via.placeholder.com/250x150" />
-    <div *ngIf="isAuth">
-      <ion-fab vertical="top" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="member(event._id)" color="danger"><ion-icon name="add"></ion-icon></ion-fab-button>
-      </ion-fab>
-    </div>
+    
     <ion-card-header>
       <ion-card-subtitle>{{event.adress}} </ion-card-subtitle>
       <ion-card-title>{{event.name}}</ion-card-title>
@@ -47,5 +49,6 @@
     <ion-card-content>
       <ion-text>{{event.description}} </ion-text>
     </ion-card-content>
+  </div>
   </ion-card>
 </ion-content>

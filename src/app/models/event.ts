@@ -1,7 +1,7 @@
 export class Event {
     name: string;
     date: string;
-    address:string;    
+    adress:string;    
     image: string;
     time: string;
     description: string;

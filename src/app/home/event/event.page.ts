@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
-import { map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-event',
   templateUrl: './event.page.html',
@@ -36,7 +36,6 @@ export class EventPage implements OnInit {
   member(id){
     const MemberURL='/api/events/'+id+'/member'
     return this.http.post(MemberURL,'').subscribe();
-
   }
   
   authenticated(){
