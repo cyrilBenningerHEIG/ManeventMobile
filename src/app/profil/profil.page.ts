@@ -21,21 +21,21 @@ export class ProfilPage implements OnInit {
 
   ngOnInit() {
     this.GetUser();
+    
   }
   GetUser(){
     return this.auth.getUser().subscribe(result=>{
       console.log(result);
       this.User=result;
+      this.GetData();
     });
   }
   GetData(){
-    const AddUserURL = '/api/events';
-    this.GetUser();    
+    const AddUserURL = '/api/events';   
     return this.http.get<Event[]>(AddUserURL).subscribe(result => {
       let Allevents = result['data'];
       this.events= Allevents.filter(function(x){return new Date(x.date)>=new Date()});
-      let id = this.User['_id'];
-      this.events=this.events.filter(x=>x['admin']==User['_id']);      
+      this.events=this.events.filter(x=>x['admin']==this.User['_id']);      
       this.events.sort(function(a, b){
         return +new Date(a.date) - +new Date(b.date);
       })

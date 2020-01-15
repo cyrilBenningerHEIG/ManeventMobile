@@ -31,12 +31,13 @@
     </ion-label>
     <ion-icon name="build" slot="end"></ion-icon>
   </ion-item>
+  <ion-button expand="block">Delete my account</ion-button>
 <h2>Mes événements</h2>
 <!-- <div *ngIf="events[0]"> -->
   <div>
   <ion-item *ngFor="let event of events | slice:0:10" >
     <ion-avatar slot="start">
-      <img src="{{ event.image[0] }}" alt="Photo de l'event">
+      <img src="https://via.placeholder.com/50"  alt="Photo de l'event">
     </ion-avatar>
     <ion-label>
       <ion-grid>
@@ -45,7 +46,7 @@
             <h2>{{ event.name }}</h2>
             <p>{{ event.date }}<p>
           </ion-col>
-          <ion-col size="1">
+          <ion-col>
             <ion-button icon-only (click)="redirectToUpdateForm(poi)">
               <ion-icon name="settings"></ion-icon>
             </ion-button>
@@ -58,7 +59,5 @@
     </ion-label>
   </ion-item>
 </div>
-
-  <ion-button expand="block">Delete my account</ion-button>
 
 </ion-content>
