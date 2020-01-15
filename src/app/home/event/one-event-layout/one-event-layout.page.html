@@ -15,10 +15,12 @@
     </ion-card-header>
     <ion-card-content>
         {{events?.description}}</ion-card-content>
-  </ion-card>
-  <ion-button expand="block">Delete Event</ion-button>
+  </ion-card>  
+  
   <ion-button expand="block">Show Chat</ion-button>
-
+  <div *ngIf="isAdmin">
+  <ion-button (click)="delete()" expand="block">Delete Event</ion-button>
+  </div>
 </ion-content>
 <!-- Modal component for Live chat usage -->
 <!-- <ion-modal-controller></ion-modal-controller> -->

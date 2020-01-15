@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { OneEventLayoutPageRoutingModule } from './one-event-layout-routing.module';
-
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { OneEventLayoutPage } from './one-event-layout.page';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { OneEventLayoutPage } from './one-event-layout.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    LeafletModule,
     OneEventLayoutPageRoutingModule
   ],
   declarations: [OneEventLayoutPage]
