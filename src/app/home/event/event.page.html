@@ -8,14 +8,18 @@
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item>
         <ion-label position="stacked">City</ion-label>
-        <ion-input  type="text"  id="cityName" class="form-control" name="cityName" placeholder="Lausanne" ngModel></ion-input>
+        <ion-input type="text" id="cityName" class="form-control" name="cityName" placeholder="Lausanne" ngModel>
+        </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Date</ion-label>
-        <ion-input  type="date" id="dataValue" class="form-control" name="dataValue" ngModel></ion-input>
+        <ion-input type="date" id="dataValue" class="form-control" name="dataValue" ngModel></ion-input>
       </ion-item>
-
+      <ion-item>
+        <ion-label>Show all events</ion-label>
+        <ion-toggle></ion-toggle>
+        </ion-item>
     </ion-list>
     <ion-button type="submit" expand="block" [disabled]="filterForm.invalid">Search</ion-button>
   </form>
@@ -27,7 +31,9 @@
     <img src="https://via.placeholder.com/250x150" />
     <div *ngIf="isAuth">
       <ion-fab vertical="top" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="member(event._id)" color="danger"><ion-icon name="add"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="member(event._id)" color="danger">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
       </ion-fab>
     </div>
     <ion-card-header>
