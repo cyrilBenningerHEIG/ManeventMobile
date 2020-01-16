@@ -5,6 +5,10 @@
 </ion-header>
 
 <ion-content>
+    <ion-button (click)="takePicture()">Take picture</ion-button> 
+    <img *ngIf="pictureData" src="data:image/jpeg;base64,{{ pictureData }}" />
+    <ion-button (click)="uploadPicture()">Take picture</ion-button> 
+    <img *ngIf="pictureData" src="data:image/jpeg;base64,{{ pictureData }}" />
     <form #eventForm="ngForm" (submit)="onSubmit(eventForm)">
         <ion-list>
     
@@ -25,6 +29,10 @@
                   <ion-input inputmode="text" #eventaddress="ngModel" required="true" name="eventaddress"  
                   [(ngModel)]="newEvent.adress"></ion-input>
                 </ion-item>
+                
+                  
+                
+                
 
                 <ion-item>
                     <ion-label position="floating">Image</ion-label>

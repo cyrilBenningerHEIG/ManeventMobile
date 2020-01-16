@@ -53,8 +53,7 @@ export class OneEventLayoutPage implements OnInit {
 
   ngOnInit() {
     this.viewMap=true;
-    this.isAdmin = false;
-    
+    this.isAdmin = false;    
     this.GetData();
 
 
@@ -85,7 +84,10 @@ export class OneEventLayoutPage implements OnInit {
   }
   CheckMember() {
     this.GetUser();
-    return this.isAdmin = this.events['admin'] == this.User['_id']
+    if (this.User===null) {
+      return this.isAdmin = this.events['admin'] == this.User['_id']
+    }
+    
   }
   delete() {
     this.getRouteParams();
@@ -101,7 +103,6 @@ export class OneEventLayoutPage implements OnInit {
       const coords = position.coords;
       console.log(`User is at ${coords.longitude}, ${coords.latitude}`);
       this.UserPosition=[coords.latitude,coords.longitude];
-      console.log(this.UserPosition)
     }).catch(err => {
       console.warn(`Could not retrieve user position because: ${err.message}`);
     });
@@ -113,9 +114,8 @@ export class OneEventLayoutPage implements OnInit {
     const AddUserURL = '/api/events/' + this.routeParams['id'];
     return this.http.get<Event>(AddUserURL).subscribe(result => {
       this.events = result;
-      this.CheckMember()
-      
-      console.log(this.events)
+      this.CheckMember();
+      console.log(this.UserPosition)      
       this.mapMarkers = [
         marker(this.events['location']['coordinates'].reverse(), { icon: eventIcon }),
         marker(this.UserPosition,{icon: personIcon})       

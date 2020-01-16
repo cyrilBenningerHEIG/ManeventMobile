@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://manevent.herokuapp.com/',
+  // TODO: add the qimg URL and secret token to the configuration
+  qimgUrl: 'https://comem-qimg.herokuapp.com/api',
+  qimgSecret: 'XFwqHib1H9SCqx6tDUJPGPcy78nAOyxh/2h8GTsg3bsLw/VnLN7td0RxnuswlISJWAd13mE/b3sZU3WTagvGoQQRo5FF2tKAzI3a1rcsJ8YFS5g29xSVojOmxW90ve9UduYKx5foiDZ5m18It0erxf6hWwPUTorZFyVPS//leKA='
 };
 
 /*
