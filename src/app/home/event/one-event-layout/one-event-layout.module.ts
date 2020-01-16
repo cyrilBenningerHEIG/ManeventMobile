@@ -18,4 +18,4 @@ import { OneEventLayoutPage } from './one-event-layout.page';
   ],
   declarations: [OneEventLayoutPage]
 })
-export class OneEventLayoutPageModule {}
+export class OneEventLayoutPageModule { }
