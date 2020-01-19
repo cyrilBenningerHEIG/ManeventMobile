@@ -8,13 +8,17 @@ import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../auth/auth.service';
 import { map } from 'rxjs/operators';
-// import { ModalPage } from '../modal/modal.page';
+
+import { WampService } from '../../../wamp.service';
+
+
 
 @Component({
   selector: 'app-one-event-layout',
   templateUrl: './one-event-layout.page.html',
   styleUrls: ['./one-event-layout.page.scss'],
 })
+
 export class OneEventLayoutPage implements OnInit {
   // Dynamic parameters for this component's route: /example-params/:first/:second
   routeParams: Params;
@@ -24,9 +28,9 @@ export class OneEventLayoutPage implements OnInit {
   events:Event;
 
 
-  constructor(private http: HttpClient, private router: Router,private auth: AuthService,private activatedRoute: ActivatedRoute) { }
+  constructor(private http: HttpClient, private router: Router,private auth: AuthService,private activatedRoute: ActivatedRoute,private wamp: WampService) { }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.GetData();
 
   }
@@ -49,8 +53,9 @@ export class OneEventLayoutPage implements OnInit {
     return this.http.get<Event>(AddUserURL).subscribe(result => {
       this.events=result;
       console.log(this.events)
-      
+
   },err=>{}
   )};
+
 
 }
