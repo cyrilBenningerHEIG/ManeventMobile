@@ -51,7 +51,7 @@
     "@ionic/angular-toolkit": "^2.1.2",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/leaflet": "^1.5.7",
+    "@types/leaflet": "^1.5.8",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.2.1",
     "cordova-plugin-device": "^2.0.3",
@@ -75,14 +75,16 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-geolocation": {},
-      "cordova-plugin-camera": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     },
     "platforms": [
       "ios",

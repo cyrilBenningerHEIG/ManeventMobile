@@ -31,7 +31,7 @@
     </ion-label>
     <ion-icon name="build" slot="end"></ion-icon>
   </ion-item>
-  <ion-button expand="block">Delete my account</ion-button>
+  <ion-button expand="block" (click)="deleteUser()">Delete my account</ion-button>
 <h2>Mes événements</h2>
 <!-- <div *ngIf="events[0]"> -->
   <div>
@@ -47,10 +47,10 @@
             <p>{{ event.date }}<p>
           </ion-col>
           <ion-col>
-            <ion-button icon-only (click)="redirectToUpdateForm(poi)">
+            <ion-button icon-only (click)="redirectToUpdateForm()">
               <ion-icon name="settings"></ion-icon>
             </ion-button>
-            <ion-button icon-only (click)="deletePoi(poi)">
+            <ion-button icon-only (click)="deleteEvent()">
               <ion-icon name="close-circle-outline"></ion-icon>
             </ion-button>
           </ion-col>
