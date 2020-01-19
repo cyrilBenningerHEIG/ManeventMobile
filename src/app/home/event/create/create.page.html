@@ -8,7 +8,7 @@
     <ion-button (click)="takePicture()">Take picture</ion-button> 
     <img *ngIf="pictureData" src="data:image/jpeg;base64,{{ pictureData }}" />
     <ion-button (click)="uploadPicture()">upload picture</ion-button> 
-    <img *ngIf="picture" src="data:image/jpeg;base64,{{ pictureData }}" />
+    <img *ngIf="picture" src="data:image/jpeg;base64,{{ picture }}" />
     <form #eventForm="ngForm" (submit)="onSubmit(eventForm)">
         <ion-list>
     
