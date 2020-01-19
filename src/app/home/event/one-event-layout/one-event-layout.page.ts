@@ -3,15 +3,19 @@ import { ModalController } from '@ionic/angular';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Event } from '../../../models/event';
+import { User } from '../../../models/user';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../auth/auth.service';
 import { map } from 'rxjs/operators';
-
 import { WampService } from '../../../wamp.service';
-
-
+import { personIcon } from '../../../../assets/Person_marker';
+import { eventIcon } from '../../../../assets/Event_marker';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Geoposition } from '@ionic-native/geolocation/ngx';
+import { latLng, MapOptions, tileLayer, Map,marker, Marker } from 'leaflet';
+// import { ModalPage } from '../modal/modal.page';
 
 @Component({
   selector: 'app-one-event-layout',
@@ -22,17 +26,45 @@ import { WampService } from '../../../wamp.service';
 export class OneEventLayoutPage implements OnInit {
   // Dynamic parameters for this component's route: /example-params/:first/:second
   routeParams: Params;
+  mapOptions: MapOptions;
+  mapMarkers: Marker[];
 
   // Query parameters found in the URL: /example-params/one/two?query1=one&query2=two
   queryParams: Params;
-  events:Event;
+  events: Event;
+  isAdmin: boolean;
+  User: User;
+  viewMap:Boolean;
+  UserPosition;
 
 
-  constructor(private http: HttpClient, private router: Router,private auth: AuthService,private activatedRoute: ActivatedRoute,private wamp: WampService) { }
+  constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation) {
+    this.mapOptions = {
+      layers: [
+        tileLayer(
+          'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        )
+      ],
+      zoom: 13,
+      center: latLng(46.778186, 6.641524),
+      maxZoom:19
+    }
+  }
+
+
 
   ngOnInit() {
+    this.viewMap=true;
+    this.isAdmin = false;
     this.GetData();
 
+
+  }
+  GetMap(){
+    this.viewMap=!this.viewMap;
+  }
+  onMapReady(map: Map) {
+    setTimeout(() => map.invalidateSize(), 0);
   }
   // Store parameter values on URL changes
   getRouteParams() {
@@ -47,15 +79,56 @@ export class OneEventLayoutPage implements OnInit {
       this.queryParams = params;
     });
   }
-  GetData(){
-    this.getRouteParams();
-    const AddUserURL = '/api/events/'+this.routeParams['id'];
-    return this.http.get<Event>(AddUserURL).subscribe(result => {
-      this.events=result;
-      console.log(this.events)
+  GetUser() {
+    return this.auth.getUser().subscribe(result => {
+      this.User = result;
+    });
+  }
+  CheckMember() {
+    this.GetUser();
+    if (this.User===null) {
+      return this.isAdmin = this.events['admin'] == this.User['_id']
+    }
 
-  },err=>{}
-  )};
+  }
+  delete() {
+    this.getRouteParams();
+    const AddUserURL = '/api/events/' + this.routeParams['id'];
+    return this.http.delete(AddUserURL, { responseType: 'text' }).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/home');
+      }
+    });
+  }
+  GetPosition(){
+    this.geolocation.getCurrentPosition().then((position: Geoposition) => {
+      const coords = position.coords;
+      console.log(`User is at ${coords.longitude}, ${coords.latitude}`);
+      this.UserPosition=[coords.latitude,coords.longitude];
+    }).catch(err => {
+      console.warn(`Could not retrieve user position because: ${err.message}`);
+    });
+  }
+
+  GetData() {
+    this.getRouteParams();
+    this.GetPosition();
+    const AddUserURL = '/api/events/' + this.routeParams['id'];
+    return this.http.get<Event>(AddUserURL).subscribe(result => {
+      this.events = result;
+      this.CheckMember();
+      console.log(this.UserPosition)
+      this.mapMarkers = [
+        marker(this.events['location']['coordinates'].reverse(), { icon: eventIcon }),
+        marker(this.UserPosition,{icon: personIcon})
+      ];
+      this.mapOptions.center=(this.events['location']['coordinates']);
+
+
+
+    }, err => { }
+    )
+  };
 
 
 }

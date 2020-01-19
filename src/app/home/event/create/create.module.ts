@@ -19,8 +19,5 @@ import { Event } from '../../../models/event';
   declarations: [CreatePage]
 })
 export class CreatePageModule {
-  newEvent: Event;
-  constructor() {
-    this.newEvent = new Event();
-  }
+  
 }
