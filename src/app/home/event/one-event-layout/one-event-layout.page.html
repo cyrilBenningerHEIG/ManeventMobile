@@ -27,6 +27,64 @@
 
   <ion-button (click)="getAllPreviousMsg()" expand="block">Show Chat</ion-button>
 
+  <ion-grid id="chat">
+    <div class="chat-frame">
+    <ion-row id="message">
+      <ion-col size="3">
+        <ion-avatar class="msg-image">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+      </ion-col>
+      <ion-col>
+        <div class="msg-text">
+          Craft beer blue bottle copper mug gastropub post-ironic everyday carry tofu plaid raw denim.
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row id="message">
+      <ion-col size="3">
+        <ion-avatar class="msg-image">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+      </ion-col>
+      <ion-col>
+        <div class="msg-text">
+          Pabst hexagon irony cliche gochujang la croix ennui yr wolf microdosing plaid pork belly man braid mumblecore.
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row id="message">
+      <ion-col size="3">
+        <ion-avatar class="msg-image">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+      </ion-col>
+      <ion-col>
+        <div class="msg-text">
+        Dreamcatcher occupy ennui YOLO kinfolk live-edge.
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="chat-footer">
+  <ion-row id="send-message-form">
+    <ion-col size="3">
+      <ion-avatar class="send-message-form-image">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+    </ion-col>
+    <ion-col>
+      <div class="msg-text">
+      Hello World !
+      </div>
+    </ion-col>
+    <ion-col size="2" id="icon-background">
+      <ion-icon name="send" id="send-icon"></ion-icon>
+    </ion-col>
+  </ion-row>
+  </div>
+</ion-grid>
 
   <div *ngIf="isAdmin">
     <ion-button (click)="delete()" expand="block">Delete Event</ion-button>
