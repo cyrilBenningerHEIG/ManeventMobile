@@ -63,6 +63,7 @@ export class CreatePage {
       this.http.post(AddUserURL, this.newEvent).subscribe({
         next: () => {
           console.log(this.newEvent);
+          this.router.navigateByUrl('');
         },
         error: err => {
           //this.userError = true;

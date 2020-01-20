@@ -5,6 +5,7 @@
 </ion-header>
 <ion-content fullscreen>
   <ion-card *ngFor="let event of events">
+    <div [routerLink]="['event', event['_id']]">
     <img src="https://via.placeholder.com/250x150" />
     <ion-card-header>
       <ion-card-subtitle>{{event.adress}} </ion-card-subtitle>
@@ -23,5 +24,6 @@
     <ion-card-content>
       <ion-text>{{event.description}} </ion-text>
     </ion-card-content>
+  </div>
   </ion-card>
 </ion-content>
