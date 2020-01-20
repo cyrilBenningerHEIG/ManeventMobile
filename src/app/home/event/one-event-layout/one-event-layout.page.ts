@@ -9,13 +9,12 @@ import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../auth/auth.service';
 import { map } from 'rxjs/operators';
-import { WampService } from '../../../wamp.service';
 import { personIcon } from '../../../../assets/Person_marker';
 import { eventIcon } from '../../../../assets/Event_marker';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Geoposition } from '@ionic-native/geolocation/ngx';
 import { latLng, MapOptions, tileLayer, Map,marker, Marker } from 'leaflet';
-// import { ModalPage } from '../modal/modal.page';
+import { WampService } from '../../../wamp.service';
 
 @Component({
   selector: 'app-one-event-layout',
@@ -38,7 +37,7 @@ export class OneEventLayoutPage implements OnInit {
   UserPosition;
 
 
-  constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation) {
+  constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation,private wamp: WampService) {
     this.mapOptions = {
       layers: [
         tileLayer(
@@ -51,14 +50,19 @@ export class OneEventLayoutPage implements OnInit {
     }
   }
 
-
+  getAllPreviousMsg() {
+  // Call the remote procedure and log the results
+  this.wamp.call('com.herokuapp.manevent.AllPreviousMsg').subscribe(data =>
+    {
+      this.data = data;
+      console.log(data);
+    });
+ }
 
   ngOnInit() {
     this.viewMap=true;
     this.isAdmin = false;
     this.GetData();
-
-
   }
   GetMap(){
     this.viewMap=!this.viewMap;
