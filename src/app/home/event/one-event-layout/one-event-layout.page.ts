@@ -91,8 +91,8 @@ export class OneEventLayoutPage implements OnInit {
   }
   CheckMember() {
     this.GetUser();
-    if (this.User===null) {
-      return this.isAdmin = this.events['admin'] == this.User['_id']
+    if (this.User!=null) {
+      return this.isAdmin = this.events['admin'] === this.User['_id']
     }
 
   }
@@ -122,7 +122,6 @@ export class OneEventLayoutPage implements OnInit {
     return this.http.get<Event>(AddUserURL).subscribe(result => {
       this.events = result;
       this.CheckMember();
-      console.log(this.UserPosition)
       this.mapMarkers = [
         marker(this.events['location']['coordinates'].reverse(), { icon: eventIcon }),
         marker(this.UserPosition,{icon: personIcon})

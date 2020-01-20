@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-event',
@@ -51,6 +52,7 @@ export class EventPage implements OnInit {
       this.events.sort(function(a, b){
         return +new Date(a.date) - +new Date(b.date);
       })
+      
   },err=>{}
   )};
   

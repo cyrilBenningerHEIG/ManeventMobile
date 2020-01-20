@@ -30,7 +30,7 @@ export class UpdatePage implements OnInit {
   }
   ngOnInit() {
     this.GetData();
-    this.newEvent=this.events;
+    
   }
   GetData(){
     this.getRouteParams();
