@@ -39,9 +39,15 @@ export class ProfilPage implements OnInit {
     console.log("Michel Dinars");
   }
 
-  deleteEvent() {
+  deleteEvent(id) {
     console.log("super");
-  }
+     const AddUserURL = '/api/events/' + id;
+     return this.http.delete(AddUserURL, { responseType: 'text' }).subscribe({
+       next: () => {
+         this.router.navigateByUrl('/profil');
+       },
+  })
+}
   logout(){
     this.auth.logOut();
     this.router.navigateByUrl('/');
