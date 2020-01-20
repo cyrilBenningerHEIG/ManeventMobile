@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   },
   {
+    path: 'update',
+    loadChildren: () => import('./update/update.module').then( m => m.UpdatePageModule)
+  },
+  {
     path: 'event/:id',
     loadChildren: () => import('./one-event-layout/one-event-layout.module').then( m => m.OneEventLayoutPageModule)
   }
