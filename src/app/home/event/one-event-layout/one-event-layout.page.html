@@ -29,6 +29,7 @@
 
   <ion-grid id="chat">
     <div class="chat-frame">
+      <ion-card  *ngFor="let data of datas">
     <ion-row id="message">
       <ion-col size="3">
         <ion-avatar class="msg-image">
@@ -37,34 +38,10 @@
       </ion-col>
       <ion-col>
         <div class="msg-text">
-          Craft beer blue bottle copper mug gastropub post-ironic everyday carry tofu plaid raw denim.
-        </div>
+          {{data.text}}        </div>
       </ion-col>
     </ion-row>
-    <ion-row id="message">
-      <ion-col size="3">
-        <ion-avatar class="msg-image">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-      </ion-col>
-      <ion-col>
-        <div class="msg-text">
-          Pabst hexagon irony cliche gochujang la croix ennui yr wolf microdosing plaid pork belly man braid mumblecore.
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row id="message">
-      <ion-col size="3">
-        <ion-avatar class="msg-image">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-      </ion-col>
-      <ion-col>
-        <div class="msg-text">
-        Dreamcatcher occupy ennui YOLO kinfolk live-edge.
-        </div>
-      </ion-col>
-    </ion-row>
+  </ion-card>
   </div>
 
   <div class="chat-footer">

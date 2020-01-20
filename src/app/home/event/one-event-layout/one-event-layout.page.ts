@@ -35,7 +35,7 @@ export class OneEventLayoutPage implements OnInit {
   User: User;
   viewMap:Boolean;
   UserPosition;
-  data;
+  datas;
 
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation,private wamp: WampService) {
@@ -55,7 +55,7 @@ export class OneEventLayoutPage implements OnInit {
   // Call the remote procedure and log the results
   this.wamp.call('com.herokuapp.manevent.AllPreviousMsg').subscribe(data =>
     {
-      this.data = data;
+      this.datas = data;
       console.log(data);
     });
  }
