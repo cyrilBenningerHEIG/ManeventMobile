@@ -24,6 +24,10 @@
     <ion-card-content>
       {{events?.description}}</ion-card-content>
   </ion-card>
+  <div *ngIf="isAdmin">
+    <ion-button (click)="delete()" expand="block">Delete Event</ion-button>
+    <ion-button  [routerLink]="['update', events['_id']]" expand="block">Modify Event</ion-button>
+  </div>
 
   <ion-button (click)="getAllPreviousMsg()" expand="block">Show Chat</ion-button>
 
@@ -66,9 +70,7 @@
   </div>
 </ion-grid>
 
-  <div *ngIf="isAdmin">
-    <ion-button (click)="delete()" expand="block">Delete Event</ion-button>
-  </div>
+  
 </ion-content>
 <!-- Modal component for Live chat usage -->
 <!-- <ion-modal-controller></ion-modal-controller> -->
