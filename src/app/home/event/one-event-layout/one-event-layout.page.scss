@@ -5,3 +5,37 @@
   height: 300px;
   width: 100%;
 }
+
+#message{
+  margin: 1em 1.5em;
+  border: 0.5px solid #d4d4d4;
+  border-radius: 5px;
+}
+
+#chat{
+  height: 400px;
+  position:relative;
+}
+
+#chat .chat-frame {
+  max-height:100%;
+  overflow:auto;
+  border:0.75px solid #d4d4d4 ;
+  border-radius: 5px;
+}
+
+#send-icon{
+  color: #d4d4d4;
+  height: 100%;
+  width: 100%;
+}
+
+#icon-background{
+  margin: 5px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+#send-message-form{
+  margin: 1.5em 0;
+}
