@@ -35,16 +35,22 @@ export class ProfilPage implements OnInit {
     console.log("super2");
   }
 
-  deleteUser() {
+  deleteUser(id) {
     console.log("Michel Dinars");
+    const AddUserURL = '/api/users/'+id;
+     return this.http.delete(AddUserURL, { responseType: 'text' }).subscribe({
+       next: () => {
+         this.logout();
+         this.router.navigateByUrl('');
+       },
+  })
   }
 
   deleteEvent(id) {
-    console.log("super");
      const AddUserURL = '/api/events/' + id;
      return this.http.delete(AddUserURL, { responseType: 'text' }).subscribe({
        next: () => {
-         this.router.navigateByUrl('/profil');
+         this.router.navigateByUrl('');
        },
   })
 }
