@@ -51,7 +51,7 @@ export class OneEventLayoutPage implements OnInit {
   }
 
   getAllPreviousMsg() {
-    // Call the remote procedure and log the results
+  // Call the remote procedure and log the results
   this.wamp.call('com.herokuapp.manevent.AllPreviousMsg').subscribe(data =>
     {
       this.data = data;

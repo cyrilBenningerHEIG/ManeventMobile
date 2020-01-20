@@ -25,7 +25,8 @@
       {{events?.description}}</ion-card-content>
   </ion-card>
 
-  <ion-button (click)="getAllPreviousMsg()"  expand="block">Show Chat</ion-button>
+  <ion-button (click)="getAllPreviousMsg()" expand="block">Show Chat</ion-button>
+
 
   <div *ngIf="isAdmin">
     <ion-button (click)="delete()" expand="block">Delete Event</ion-button>
