@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: ProfilPage
+  },
+  {
+    path: 'event/:id',
+    loadChildren: () => import('../home/event/one-event-layout/one-event-layout.module').then( m => m.OneEventLayoutPageModule)
   }
+
 ];
 
 @NgModule({

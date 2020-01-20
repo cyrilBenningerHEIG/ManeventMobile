@@ -27,7 +27,7 @@ export class SignupPage {
     const AddUserURL = '/api/users';
     this.http.post(AddUserURL, this.newUser).subscribe({
       next: () => {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/login');
     },
     error: err => {
       this.userError = true;

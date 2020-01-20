@@ -10,12 +10,13 @@ const routes: Routes = [
     children: [
   {
     path: 'favorites',
+    canActivate: [ AuthGuard ],
     loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
   },
   {
     path: 'profil',
     canActivate: [ AuthGuard ],
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+    loadChildren: () => import('../profil/profil.module').then( m => m.ProfilPageModule)
   },
   {
     path: 'events',
