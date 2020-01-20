@@ -46,15 +46,18 @@
 
   <div class="chat-footer">
   <ion-row id="send-message-form">
-    <ion-col size="3">
-      <ion-avatar class="send-message-form-image">
+
+    <ion-col size="2">
+      <ion-avatar>
         <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
       </ion-avatar>
     </ion-col>
     <ion-col>
-      <div class="msg-text">
-      Hello World !
-      </div>
+      <form>
+      <ion-item class="msg-text">
+            <ion-textarea></ion-textarea>
+      </ion-item>
+      </form>
     </ion-col>
     <ion-col size="2" id="icon-background">
       <ion-icon name="send" id="send-icon"></ion-icon>
