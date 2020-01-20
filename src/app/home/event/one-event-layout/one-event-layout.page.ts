@@ -35,6 +35,7 @@ export class OneEventLayoutPage implements OnInit {
   User: User;
   viewMap:Boolean;
   UserPosition;
+  data;
 
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation,private wamp: WampService) {

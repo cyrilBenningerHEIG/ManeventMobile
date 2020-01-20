@@ -48,7 +48,7 @@
             <p>{{ event.date }}<p>
           </ion-col>
           <ion-col>
-            <ion-button icon-only (click)="redirectToUpdateForm()">
+            <ion-button icon-only [routerLink]="['update', event['_id']]">
               <ion-icon name="settings"></ion-icon>
             </ion-button>
             <ion-button icon-only (click)="deleteEvent(event['_id'])">
