@@ -42,6 +42,11 @@ export class ProfilPage implements OnInit {
   deleteEvent() {
     console.log("super");
   }
+  logout(){
+    this.auth.logOut();
+    this.router.navigateByUrl('/');
+  }
+  
 
   // deleteEvent() {
   //   this.getRouteParams();

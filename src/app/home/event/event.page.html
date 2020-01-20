@@ -30,10 +30,10 @@
   <ion-card  *ngFor="let event of events">
       <div *ngIf="isAuth">
           <ion-fab vertical="top" horizontal="end" slot="fixed">
-          <ion-fab-button (click)="member(event._id)" color="danger"><ion-icon name="add"></ion-icon></ion-fab-button>
+          <ion-fab-button (click)="member(event['_id'])" color="danger"><ion-icon name="add"></ion-icon></ion-fab-button>
           </ion-fab>
         </div>
-        <div [routerLink]="['event', event._id]">
+        <div [routerLink]="['event', event['_id']]">
     <img src="https://via.placeholder.com/250x150" />
     
     <ion-card-header>
