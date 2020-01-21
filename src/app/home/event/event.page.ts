@@ -21,7 +21,7 @@ export class EventPage {
     
   }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.GetData();    
     this.authenticated();
   }

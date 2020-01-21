@@ -72,7 +72,7 @@ export class OneEventLayoutPage {
   }
 
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.viewMap=true;
     this.isAdmin = false;
     this.GetData();

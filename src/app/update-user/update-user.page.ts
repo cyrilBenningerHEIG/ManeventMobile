@@ -18,7 +18,7 @@ export class UpdateUserPage {
   constructor(private http: HttpClient, private router: Router, private auth: AuthService) {
     this.newUser = new User();
    }
-   ngOnInit() {
+   ionViewWillEnter() {
     this.GetUser();
 
   }
