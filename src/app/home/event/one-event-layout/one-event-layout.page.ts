@@ -37,7 +37,7 @@ export class OneEventLayoutPage {
   viewMap:Boolean;
   Msg:Msg;
   UserPosition;
-  datas;
+  datas:Msg[];
   eventContent: string;
 
 
@@ -59,12 +59,18 @@ export class OneEventLayoutPage {
   // Call the remote procedure and log the results
   this.wamp.call('com.herokuapp.manevent.AllPreviousMsg').subscribe(data =>
     {
+      let Eventid=this.events['_id'];
       this.datas = data;
+      this.datas=this.datas.filter(function(x){return x.event===Eventid});
+      this.datas.sort(function(a, b){
+        return +new Date(a['createdAt']) - +new Date(b['createdAt'])
+      });
       console.log(data);
     });
   this.wamp
     .listen('com.herokuapp.manevent.1')
     .subscribe(event => {
+      this.datas=event;
         console.log('message recieved !')
       });
  }
@@ -74,7 +80,6 @@ export class OneEventLayoutPage {
    this.Msg.text=this.eventContent;
    this.Msg.event=this.events['_id'];
    this.wamp.call('com.herokuapp.manevent.createMsg', [],this.Msg).subscribe();
-    console.log(this.eventContent)
 
   }
 
