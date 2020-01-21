@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-button (click)="uploadPicture()">upload picture</ion-button>
-  <img *ngIf="picture" src="data:image/jpeg;base64,{{ picture }}" />
+  <img *ngIf="picture" [src]='picture.url' />
     <form #eventForm="ngForm" (submit)="onSubmit(eventForm)">
         <ion-list>
 
@@ -30,7 +30,7 @@
                   <ion-input inputmode="text" #eventaddress="ngModel" required="true" name="eventaddress"
                   [(ngModel)]="newEvent.adress"></ion-input>
                 </ion-item>
-                
+
                 <ion-item>
                     <ion-label position="floating">Image</ion-label>
                     <ion-input inputmode="text" #eventimage="ngModel" required="true" name="eventimage"
