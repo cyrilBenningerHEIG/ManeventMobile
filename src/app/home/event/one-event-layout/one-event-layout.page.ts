@@ -36,6 +36,7 @@ export class OneEventLayoutPage implements OnInit {
   viewMap:Boolean;
   UserPosition;
   datas;
+  eventContent: string;
 
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation,private wamp: WampService) {
@@ -59,6 +60,12 @@ export class OneEventLayoutPage implements OnInit {
       console.log(data);
     });
  }
+
+ sendEvent() {
+    this.wamp.send('com.herokuapp.manevent.createMsg', [{ "text": this.eventContent }]);
+    console.log(this.eventContent)
+  }
+
 
   ngOnInit() {
     this.viewMap=true;

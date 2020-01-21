@@ -8,12 +8,14 @@
 
 #message{
   margin: 1em 1.5em;
-  border: 0.5px solid #d4d4d4;
-  border-radius: 5px;
+}
+
+#message .msg-text {
+  margin: 1em;
 }
 
 #chat{
-  height: 400px;
+  height: 350px;
   position:relative;
 }
 

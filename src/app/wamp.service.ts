@@ -18,7 +18,6 @@ export class WampService {
     connection.onopen = session => this.session$.next(session);
     // Initiate the connection
     connection.open();
-    console.log("HEllo from WAMP Service")
   }
 
   public call(procUri: string, arr?: any[], obj?: object, options?: object): Observable<any> {
@@ -39,7 +38,13 @@ export class WampService {
         });
       })
     );
-    console.log('hello from call')
+  }
+  public send(topic: string,arr?: any[]): void {
+    // Subscribe to retrieve the active WAMP session
+    this.session$.subscribe(session => {
+      // Publish the given message on the given topic
+     session.publish('com.herokuapp.manevent.createMsg', []);
+    });
   }
 
 }

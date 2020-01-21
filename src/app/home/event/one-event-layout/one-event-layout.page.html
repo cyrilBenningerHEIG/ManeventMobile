@@ -34,30 +34,28 @@
   <ion-grid id="chat">
     <div class="chat-frame">
       <ion-card  *ngFor="let data of datas">
-    <ion-row id="message">
-      <ion-col size="3">
-        <ion-avatar class="msg-image">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-      </ion-col>
-      <ion-col>
-        <div class="msg-text">
-          {{data.text}}        </div>
-      </ion-col>
-    </ion-row>
+      <ion-row id="message">
+          <ion-avatar class="msg-image">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+        <ion-col>
+          <div class="msg-text">
+            {{data.text}}</div>
+        </ion-col>
+      </ion-row>
   </ion-card>
   </div>
 
   <div class="chat-footer">
   <ion-row id="send-message-form">
 
-    <ion-col size="2">
+    <!-- <ion-col size="2">
       <ion-avatar>
         <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
       </ion-avatar>
     </ion-col>
-    <ion-col>
-      <form>
+    <ion-col> -->
+      <!-- <form>
       <ion-item class="msg-text">
             <ion-textarea></ion-textarea>
       </ion-item>
@@ -65,12 +63,14 @@
     </ion-col>
     <ion-col size="2" id="icon-background">
       <ion-icon name="send" id="send-icon"></ion-icon>
-    </ion-col>
+    </ion-col> -->
+    <input type="text" name="wamp-msg" id="wamp-msg" [(ngModel)]="eventContent">
+    <button (click)="sendEvent()">Send WAMP Event</button>
   </ion-row>
   </div>
 </ion-grid>
 
-  
+
 </ion-content>
 <!-- Modal component for Live chat usage -->
 <!-- <ion-modal-controller></ion-modal-controller> -->
