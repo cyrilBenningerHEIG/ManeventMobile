@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'update/:id',
     loadChildren: () => import('../home/event/update/update.module').then( m => m.UpdatePageModule)
+  },
+  {
+    path: 'updateUser',
+    loadChildren: () => import('../update-user/update-user.module').then( m => m.UpdateUserPageModule)
   }
 
 ];

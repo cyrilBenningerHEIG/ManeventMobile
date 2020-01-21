@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Event } from '../../../models/event';
 import { User } from '../../../models/user';
+import { Msg } from '../../../models/msg';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -22,7 +23,7 @@ import { WampService } from '../../../wamp.service';
   styleUrls: ['./one-event-layout.page.scss'],
 })
 
-export class OneEventLayoutPage implements OnInit {
+export class OneEventLayoutPage {
   // Dynamic parameters for this component's route: /example-params/:first/:second
   routeParams: Params;
   mapOptions: MapOptions;
@@ -34,11 +35,13 @@ export class OneEventLayoutPage implements OnInit {
   isAdmin: boolean;
   User: User;
   viewMap:Boolean;
+  Msg:Msg;
   UserPosition;
   datas;
+  eventContent: string;
 
 
-  constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation,private wamp: WampService) {
+  constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation,private wamp: WampService, private wampt: WampService) {
     this.mapOptions = {
       layers: [
         tileLayer(
@@ -49,18 +52,34 @@ export class OneEventLayoutPage implements OnInit {
       center: latLng(46.778186, 6.641524),
       maxZoom:19
     }
+    this.Msg = new Msg();
   }
 
-  getAllPreviousMsg() {
+  showChat() {
   // Call the remote procedure and log the results
   this.wamp.call('com.herokuapp.manevent.AllPreviousMsg').subscribe(data =>
     {
       this.datas = data;
       console.log(data);
     });
+  this.wamp
+    .listen('com.herokuapp.manevent.1')
+    .subscribe(event => {
+        console.log('message recieved !')
+      });
  }
 
-  ngOnInit() {
+ sendMesg() {
+   this.Msg.user=this.User['_id'];
+   this.Msg.text=this.eventContent;
+   this.Msg.event=this.events['_id'];
+   this.wamp.call('com.herokuapp.manevent.createMsg', [],this.Msg).subscribe();
+    console.log(this.eventContent)
+
+  }
+
+
+  ionViewWillEnter() {
     this.viewMap=true;
     this.isAdmin = false;
     this.GetData();

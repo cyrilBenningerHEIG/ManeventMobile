@@ -6,7 +6,7 @@
 
   <ion-card>
     <div *ngIf="viewMap; else map">
-      <img src="https://via.placeholder.com/150" />
+      <img src="{{events?.image}}" />
     </div>
 
     <ng-template #map>
@@ -24,56 +24,32 @@
     </ion-card-header>
     <ion-card-content>
       {{events?.description}}</ion-card-content>
-      
+
   </ion-card>
   <div *ngIf="isAdmin">
     <ion-button (click)="delete()" expand="block">Delete Event</ion-button>
     <ion-button [routerLink]="['update', events['_id']]" expand="block">Modify Event</ion-button>
   </div>
-  
 
-  <ion-button (click)="getAllPreviousMsg()" expand="block">Show Chat</ion-button>
+  <ion-button (click)="showChat()" expand="block">Show Chat</ion-button>
 
   <ion-grid id="chat">
     <div class="chat-frame">
-      <ion-card *ngFor="let data of datas">
+      <ion-card  *ngFor="let data of datas">
         <ion-row id="message">
-          <ion-col size="3">
-            <ion-avatar class="msg-image">
-              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-            </ion-avatar>
-          </ion-col>
-          <ion-col>
-            <div class="msg-text">
-              {{data.text}} </div>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </div>
-
-    <div class="chat-footer">
-      <ion-row id="send-message-form">
-
-        <ion-col size="2">
-          <ion-avatar>
+          <ion-avatar class="msg-image">
             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
           </ion-avatar>
-        </ion-col>
         <ion-col>
-          <form>
-            <ion-item class="msg-text">
-              <ion-textarea></ion-textarea>
-            </ion-item>
-          </form>
-        </ion-col>
-        <ion-col size="2" id="icon-background">
-          <ion-icon name="send" id="send-icon"></ion-icon>
+          <div class="msg-text">
+            {{data.text}}</div>
         </ion-col>
       </ion-row>
-    </div>
+  </ion-card>
+  <ion-item>
+    <ion-input type="text" name="wamp-msg" id="wamp-msg" [(ngModel)]="eventContent"></ion-input>
+    <ion-button (click)="sendMesg()" size="large" color="light" icon-only ><ion-icon name="send"></ion-icon></ion-button>
+  </ion-item>
+  </div>
   </ion-grid>
-
-
 </ion-content>
-<!-- Modal component for Live chat usage -->
-<!-- <ion-modal-controller></ion-modal-controller> -->
