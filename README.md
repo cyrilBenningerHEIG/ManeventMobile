@@ -13,9 +13,13 @@ Manevent is a simple application written on [Node.js](https://nodejs.org/) with 
 ## Usage
 
 bash
+
 git clone https://github.com/cyrilBenningerHEIG/ManeventMobile.git
+
 cd ManeventMobile
+
 npm install
+
 ionic serve
 
 The application starts at the PORT:8100 of your local server : [http://localhost:8100](http://localhost:8100).
