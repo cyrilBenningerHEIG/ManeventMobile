@@ -70,8 +70,8 @@ export class OneEventLayoutPage {
   this.wamp
     .listen('com.herokuapp.manevent.1')
     .subscribe(event => {
-      this.datas=event;
-        console.log('message recieved !', event)
+      this.datas.push(event['savedMessage']);
+        console.log('message recieved !', event['savedMessage'])
       });
  }
 
