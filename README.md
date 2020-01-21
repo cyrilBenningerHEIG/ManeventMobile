@@ -26,7 +26,7 @@ ionic serve
 
 The application starts at the PORT:8100 of your local server : [http://localhost:8100](http://localhost:8100).
 
-If you want to use the application on a smartphone, you should run it in developer mode. We are using a [Ionic DevApp](https://ionicframework.com/docs/appflow/devapp) utility for that. Use `ionic serve --devapp` instead of `ionic serve` and open it in the Ionic Dev application [https://ionicframework.com/docs/appflow/devapp].
+If you want to use the application on a smartphone, you should run it in developer mode. We are using a [Ionic DevApp](https://ionicframework.com/docs/appflow/devapp) utility for that. Use `ionic serve --devapp` instead of `ionic serve` and open it in the Ionic Dev application.
 
 ## User Guide
 
@@ -44,4 +44,4 @@ The profile section allows you to sign up and login to our app. Once logged in, 
 
 ### Event page
 
-Each event has its own section in the app. You can access a map showing your and event location by clicking on the location tag. Each event also comes with its own chat where users can exchange messages. 
+Each event has its own section in the app. You can access a map showing your and event location by clicking on the location tag. Each event also comes with its own chat where users can discuss the event. 
