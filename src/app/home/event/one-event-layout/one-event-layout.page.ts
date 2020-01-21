@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Event } from '../../../models/event';
 import { User } from '../../../models/user';
+import { Msg } from '../../../models/msg';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -34,6 +35,7 @@ export class OneEventLayoutPage {
   isAdmin: boolean;
   User: User;
   viewMap:Boolean;
+  Msg:Msg;
   UserPosition;
   datas;
   eventContent: string;
@@ -50,6 +52,7 @@ export class OneEventLayoutPage {
       center: latLng(46.778186, 6.641524),
       maxZoom:19
     }
+    this.Msg = new Msg();
   }
 
   showChat() {
@@ -67,7 +70,10 @@ export class OneEventLayoutPage {
  }
 
  sendMesg() {
-    // this.wamp.call('com.herokuapp.manevent.createMsg', [], {/*model*/}).subscribe();
+   this.Msg.user=this.User['_id'];
+   this.Msg.text=this.eventContent;
+   this.Msg.event=this.events['_id'];
+   this.wamp.call('com.herokuapp.manevent.createMsg', [],this.Msg).subscribe();
     console.log(this.eventContent)
 
   }
