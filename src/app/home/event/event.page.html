@@ -34,7 +34,7 @@
           </ion-fab>
         </div>
         <div [routerLink]="['event', event['_id']]">
-    <img src="https://via.placeholder.com/250x150" />
+    <img src="{{event?.image}}" />
     
     <ion-card-header>
       <ion-card-subtitle>{{event.adress}} </ion-card-subtitle>
