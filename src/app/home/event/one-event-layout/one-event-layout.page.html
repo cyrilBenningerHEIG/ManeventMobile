@@ -31,8 +31,7 @@
     <ion-button [routerLink]="['update', events['_id']]" expand="block">Modify Event</ion-button>
   </div>
 
-
-  <ion-button (click)="getAllPreviousMsg()" expand="block">Show Chat</ion-button>
+  <ion-button (click)="showChat()" expand="block">Show Chat</ion-button>
 
   <ion-grid id="chat">
     <div class="chat-frame">
@@ -47,36 +46,10 @@
         </ion-col>
       </ion-row>
   </ion-card>
+  <ion-item>
+    <ion-input type="text" name="wamp-msg" id="wamp-msg" [(ngModel)]="eventContent"></ion-input>
+    <ion-button (click)="sendMesg()" size="large" color="light" icon-only ><ion-icon name="send"></ion-icon></ion-button>
+  </ion-item>
   </div>
-
-    <!-- <div class="chat-footer">
-      <ion-row id="send-message-form">
-        <ion-col size="2">
-          <ion-avatar>
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <form>
-            <ion-item class="msg-text">
-              <ion-textarea></ion-textarea>
-            </ion-item>
-          </form>
-        </ion-col>
-        <ion-col size="2" id="icon-background">
-          <ion-icon name="send" id="send-icon"></ion-icon>
-        </ion-col>
-      </ion-row>
-    </div>
--->
-
-
-    <input type="text" name="wamp-msg" id="wamp-msg" [(ngModel)]="eventContent">
-    <button (click)="sendEvent()">Send WAMP Event</button>
-
-
   </ion-grid>
-
 </ion-content>
-<!-- Modal component for Live chat usage -->
-<!-- <ion-modal-controller></ion-modal-controller> -->

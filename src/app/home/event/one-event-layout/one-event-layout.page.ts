@@ -52,23 +52,24 @@ export class OneEventLayoutPage implements OnInit {
     }
   }
 
-  getAllPreviousMsg() {
+  showChat() {
   // Call the remote procedure and log the results
   this.wamp.call('com.herokuapp.manevent.AllPreviousMsg').subscribe(data =>
     {
       this.datas = data;
       console.log(data);
     });
+  this.wamp
+    .listen('com.herokuapp.manevent.1')
+    .subscribe(event => {
+        console.log('message recieved !')
+      });
  }
 
- sendEvent() {
-    this.wamp.send('com.herokuapp.manevent.createMsg', [this.eventContent]);
+ sendMesg() {
+    // this.wamp.call('com.herokuapp.manevent.createMsg', [], {/*model*/}).subscribe();
     console.log(this.eventContent)
-    this.wamp
-         .listen('com.herokuapp.manevent.1')
-         .subscribe(event => {
-           console.log('message recieved !')
-         });
+
   }
 
 

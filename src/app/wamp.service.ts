@@ -40,14 +40,6 @@ export class WampService {
     );
   }
 
-  public send(topic: string, arr?: any[]): void {
-    // Subscribe to retrieve the active WAMP session
-    this.session$.subscribe(session => {
-      // Publish the given message on the given topic
-     session.publish(topic, arr);
-    });
-  }
-
   public listen(topicUri: string): Observable<any> {
    return this.session$.pipe(
      switchMap(session => {
