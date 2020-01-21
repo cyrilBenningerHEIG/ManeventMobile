@@ -6,7 +6,7 @@
 
   <ion-card>
     <div *ngIf="viewMap; else map">
-      <img src="https://via.placeholder.com/150" />
+      <img src="{{events?.image}}" />
     </div>
 
     <ng-template #map>

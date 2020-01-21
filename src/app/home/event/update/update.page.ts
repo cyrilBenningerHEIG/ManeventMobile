@@ -36,7 +36,7 @@ export class UpdatePage implements OnInit {
     this.getRouteParams();
     const AddUserURL = '/api/events/' + this.routeParams['id'];
     return this.http.get<Event>(AddUserURL).subscribe(result => {
-      this.events = result;
+      this.newEvent = result;
     }, err => { }
     )
   };

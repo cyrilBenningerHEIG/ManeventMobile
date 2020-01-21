@@ -13,7 +13,7 @@ import { formatDate } from '@angular/common';
   templateUrl: './event.page.html',
   styleUrls: ['./event.page.scss'],
 })
-export class EventPage implements OnInit {
+export class EventPage {
   events: Event[];
   isAuth: boolean;
   EventError: boolean;
