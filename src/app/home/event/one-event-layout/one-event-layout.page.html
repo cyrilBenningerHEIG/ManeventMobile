@@ -10,7 +10,6 @@
       </div>
     </ng-template>
     <ion-card-header>
-      <ion-card-subtitle>some tag here</ion-card-subtitle>
       <ion-card-title>{{events?.name}}</ion-card-title>
       <ion-chip (click)="GetMap()">
         <ion-icon name="pin"></ion-icon>
@@ -20,7 +19,7 @@
     <ion-card-content>
       {{events?.description}}</ion-card-content>
   </ion-card>
-  
+
   <div *ngIf="isAdmin">
     <ion-button (click)="delete()" expand="block">Delete Event</ion-button>
     <ion-button [routerLink]="['update', events['_id']]" expand="block">Modify Event</ion-button>

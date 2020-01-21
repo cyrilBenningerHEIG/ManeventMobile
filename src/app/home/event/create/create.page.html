@@ -8,28 +8,38 @@
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="uploadPicture()">upload picture</ion-button> 
+  <ion-button (click)="uploadPicture()">upload picture</ion-button>
   <img *ngIf="picture" [src]='picture.url' />
     <form #eventForm="ngForm" (submit)="onSubmit(eventForm)">
         <ion-list>
-    
+
               <ion-item>
                   <ion-label position="floating">Event Name</ion-label>
                   <ion-input inputmode="text" #eventname="ngModel" required="true" name="name"
                     [(ngModel)]="newEvent.name"></ion-input>
                 </ion-item>
-    
+
                 <ion-item>
                     <ion-label position="floating">Date</ion-label>
                     <ion-datetime displayFormat="DD MMM YYYY" min=2020-01-01 max=2050-12-31 #eventdate="ngModel" required type="true" name="eventdate"
                       [(ngModel)]="newEvent.date"></ion-datetime>
                   </ion-item>
-    
+
               <ion-item>
                   <ion-label position="floating">Location</ion-label>
-                  <ion-input inputmode="text" #eventaddress="ngModel" required="true" name="eventaddress"  
+                  <ion-input inputmode="text" #eventaddress="ngModel" required="true" name="eventaddress"
                   [(ngModel)]="newEvent.adress"></ion-input>
                 </ion-item>
+<<<<<<< HEAD
+=======
+
+                <ion-item>
+                    <ion-label position="floating">Image</ion-label>
+                    <ion-input inputmode="text" #eventimage="ngModel" required="true" name="eventimage"
+                      [(ngModel)]="newEvent.image"></ion-input>
+
+                  </ion-item>
+>>>>>>> fb93d25e87177f863fa916270969f5c49a8a4da7
 
                   <ion-item>
                       <ion-label position="floating">Time</ion-label>
