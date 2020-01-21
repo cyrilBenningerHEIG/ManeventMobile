@@ -26,3 +26,6 @@ The application starts at the PORT:8100 of your local server : [http://localhost
 
 If you want to use the application on smartphone, you should run the application in a developer mode. We are using a [Ionic DevApp] utility for that. Use "ionic serve --devapp" instead of "ionic start" and locate it on the Ionic Dev application.
 
+## User Guide
+
+#Home page
