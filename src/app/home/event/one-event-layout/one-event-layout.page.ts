@@ -71,7 +71,7 @@ export class OneEventLayoutPage {
     .listen('com.herokuapp.manevent.1')
     .subscribe(event => {
       this.datas=event;
-        console.log('message recieved !')
+        console.log('message recieved !', event)
       });
  }
 
