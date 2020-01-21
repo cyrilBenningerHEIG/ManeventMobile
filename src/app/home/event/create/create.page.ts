@@ -34,6 +34,7 @@ export class CreatePage {
     };
     this.camera.getPicture(options).then(pictureData => {
       this.pictureData = pictureData;
+      
     }).catch(err => {
       console.warn(`Could not take picture because: ${err.message}`);
     });
@@ -41,6 +42,7 @@ export class CreatePage {
   uploadPicture() {
     this.pictureService.takeAndUploadPicture().subscribe(picture => {
       this.picture = picture;
+      console.log(picture);
     }, err => {
       console.warn('Could not take picture', err);
     });
@@ -50,7 +52,7 @@ export class CreatePage {
     if (form.invalid) {
       console.log("ta race");
     }
-
+    //this.newEvent.image=this.picture.url;
     const NominatimURL = "https://nominatim.openstreetmap.org/search?q=";
     this.http.get(NominatimURL + this.newEvent["adress"] + '&format=geojson&limit=1').subscribe(result => {
       let geodata = result['features']['0']['geometry'];

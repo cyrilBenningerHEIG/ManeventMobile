@@ -22,7 +22,7 @@ import { WampService } from '../../../wamp.service';
   styleUrls: ['./one-event-layout.page.scss'],
 })
 
-export class OneEventLayoutPage implements OnInit {
+export class OneEventLayoutPage {
   // Dynamic parameters for this component's route: /example-params/:first/:second
   routeParams: Params;
   mapOptions: MapOptions;
@@ -73,7 +73,7 @@ export class OneEventLayoutPage implements OnInit {
   }
 
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.viewMap=true;
     this.isAdmin = false;
     this.GetData();

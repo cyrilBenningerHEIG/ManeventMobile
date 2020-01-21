@@ -16,7 +16,7 @@ import { Event } from '../../../models/event';
   templateUrl: './update.page.html',
   styleUrls: ['./update.page.scss'],
 })
-export class UpdatePage implements OnInit {
+export class UpdatePage{
 
   newEvent: Event;
   routeParams: Params;
@@ -28,7 +28,7 @@ export class UpdatePage implements OnInit {
   constructor(private auth: AuthService, private http: HttpClient, private router: Router, private camera: Camera, private pictureService: PictureService,private activatedRoute: ActivatedRoute) {
     this.newEvent = new Event();
   }
-  ngOnInit() {
+  ionViewWillEnter() {
     this.GetData();
 
   }
@@ -36,7 +36,7 @@ export class UpdatePage implements OnInit {
     this.getRouteParams();
     const AddUserURL = '/api/events/' + this.routeParams['id'];
     return this.http.get<Event>(AddUserURL).subscribe(result => {
-      this.events = result;
+      this.newEvent = result;
     }, err => { }
     )
   };
