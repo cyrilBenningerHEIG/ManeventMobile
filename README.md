@@ -1,5 +1,5 @@
 # Manevent Mobile 
-()
+
 Manevent Mobile is a simple application written with [@ionic/angular](https://ionicframework.com/docs/angular/overview) framework which allows the following set of interactions : 
 
 1. to add / modify / delete an event  
