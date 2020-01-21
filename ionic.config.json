@@ -1,7 +1,8 @@
 {
   "name": "manevent",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
