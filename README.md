@@ -28,4 +28,18 @@ If you want to use the application on smartphone, you should run the application
 
 ## User Guide
 
-#Home page
+### All Events page 
+
+The events page gathers all events organized by the app's users. Each event come with its informations. Filters make it easy to sort events by location or date. If you are login you'll be able to add news events to the list or use the "add button" to regroup your favorite events in "My events" 
+
+### My events 
+
+All events you created or added will be stored in this page. 
+
+### Profil 
+
+The profil section allows you to sign up and login to our app. Once you logged in, you'll have access to your profil and his infos. You'll be able here to update or delete your accound and log out if needed. Under that, you'll find the events of which you're admin. Each event comes with an edit and delete button. 
+
+### Event page
+
+Each event has it's own section on the app. There you'll access to a map showing you the event location and yours. Each events also comes with his personnal chat where users can exchange messages. 
