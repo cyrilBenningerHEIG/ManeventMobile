@@ -10,7 +10,7 @@
 
       <ion-item>
         <ion-label position="floating">Userame</ion-label>
-        <ion-input inputmode="text" #username="ngModel" required="true" name="name" [(ngModel)]="newUser.name">
+        <ion-input inputmode="text" #username="ngModel" name="name" [(ngModel)]="newUser.name">
         </ion-input>
       </ion-item>
 
@@ -21,13 +21,13 @@
 
       <ion-item>
         <ion-label position="floating">Email</ion-label>
-        <ion-input inputmode="email" #name="ngModel" required="true" name="email" [(ngModel)]="newUser.email">
+        <ion-input inputmode="email" #name="ngModel"  name="email" [(ngModel)]="newUser.email">
         </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <ion-input inputmode="text" #password="ngModel" required="true" type="password" name="password"
+        <ion-input inputmode="text" #password="ngModel" type="password" name="password"
           [(ngModel)]="newUser.password"></ion-input>
       </ion-item>
 

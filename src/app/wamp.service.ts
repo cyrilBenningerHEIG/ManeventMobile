@@ -18,7 +18,6 @@ export class WampService {
     connection.onopen = session => this.session$.next(session);
     // Initiate the connection
     connection.open();
-    console.log("HEllo from WAMP Service")
   }
 
   public call(procUri: string, arr?: any[], obj?: object, options?: object): Observable<any> {
@@ -39,7 +38,26 @@ export class WampService {
         });
       })
     );
-    console.log('hello from call')
   }
+
+  public send(topic: string, arr?: any[]): void {
+    // Subscribe to retrieve the active WAMP session
+    this.session$.subscribe(session => {
+      // Publish the given message on the given topic
+     session.publish(topic, arr);
+    });
+  }
+
+  public listen(topicUri: string): Observable<any> {
+   return this.session$.pipe(
+     switchMap(session => {
+       return new Observable((subscriber: Observer<any>) => {
+         // Subscribe to the topic and make the observable emit a value
+         // each time a new event is published to this topic
+         session.subscribe(topicUri, event => subscriber.next(event));
+       });
+     })
+   );
+ }
 
 }
