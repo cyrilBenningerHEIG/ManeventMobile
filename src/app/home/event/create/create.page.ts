@@ -52,6 +52,7 @@ export class CreatePage {
     if (form.invalid) {
       console.log("ta race");
     }
+    this.newEvent.image=this.picture.url;
     //this.newEvent.image=this.picture.url;
     const NominatimURL = "https://nominatim.openstreetmap.org/search?q=";
     this.http.get(NominatimURL + this.newEvent["adress"] + '&format=geojson&limit=1').subscribe(result => {
