@@ -39,12 +39,25 @@ export class WampService {
       })
     );
   }
-  public send(topic: string,arr?: any[]): void {
+
+  public send(topic: string, arr?: any[]): void {
     // Subscribe to retrieve the active WAMP session
     this.session$.subscribe(session => {
       // Publish the given message on the given topic
-     session.publish('com.herokuapp.manevent.createMsg', []);
+     session.publish(topic, arr);
     });
   }
+
+  public listen(topicUri: string): Observable<any> {
+   return this.session$.pipe(
+     switchMap(session => {
+       return new Observable((subscriber: Observer<any>) => {
+         // Subscribe to the topic and make the observable emit a value
+         // each time a new event is published to this topic
+         session.subscribe(topicUri, event => subscriber.next(event));
+       });
+     })
+   );
+ }
 
 }

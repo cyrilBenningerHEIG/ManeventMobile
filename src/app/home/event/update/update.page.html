@@ -5,46 +5,46 @@
 </ion-header>
 
 <ion-content>
-    <ion-button (click)="takePicture()">Take picture</ion-button> 
+    <ion-button (click)="takePicture()">Take picture</ion-button>
     <img *ngIf="pictureData" src="data:image/jpeg;base64,{{ pictureData }}" />
-    <ion-button (click)="uploadPicture()">upload picture</ion-button> 
+    <ion-button (click)="uploadPicture()">upload picture</ion-button>
     <img *ngIf="picture" src="data:image/jpeg;base64,{{ picture }}" />
     <form #eventForm="ngForm" [ngFormOptions]="{updateOn: 'blur'}" (submit)="onSubmit(eventForm)" >
-        <ion-list>    
+        <ion-list>
               <ion-item>
-                  <ion-label position="floating">Event Name</ion-label>
+                  <ion-label position="stacked">Event Name</ion-label>
                   <ion-input inputmode="text" #eventname="ngModel" name="name"
               [(ngModel)]="newEvent.name">{{events?.name}}</ion-input>
                 </ion-item>
-    
+
                 <ion-item>
-                    <ion-label position="floating">Date</ion-label>
+                    <ion-label position="stacked">Date</ion-label>
                     <ion-datetime displayFormat="DD MMM YYYY" min=2020-01-01 max=2050-12-31 #eventdate="ngModel"  type="true" name="eventdate"
                       [(ngModel)]="newEvent.date">{{events?.date}}</ion-datetime>
                   </ion-item>
-    
+
               <ion-item>
-                  <ion-label position="floating">Location</ion-label>
-                  <ion-input inputmode="text" #eventaddress="ngModel" name="eventaddress"  
+                  <ion-label position="stacked">Location</ion-label>
+                  <ion-input inputmode="text" #eventaddress="ngModel" name="eventaddress"
                   [(ngModel)]="newEvent.adress">{{events?.adress}}</ion-input>
                 </ion-item>
-                
-                  
-                
-                
+
+
+
+
 
                 <ion-item>
-                    <ion-label position="floating">Image</ion-label>
+                    <ion-label position="stacked">Image</ion-label>
                     <ion-input inputmode="text" #eventimage="ngModel" required="true" name="eventimage"
                       [(ngModel)]="newEvent.image"></ion-input>
                   </ion-item>
 
                   <ion-item>
-                      <ion-label position="floating">Time</ion-label>
+                      <ion-label position="stacked">Time</ion-label>
                         <ion-datetime displayFormat="HH:mm" #eventtime="ngModel" name="eventtime"[(ngModel)]="newEvent.time">{{events?.time}}</ion-datetime>
                     </ion-item>
                     <ion-item>
-                        <ion-label position="floating">Description</ion-label>
+                        <ion-label position="stacked">Description</ion-label>
                         <ion-input inputmode="text" #eventdescription="ngModel" required="true" name="eventdescription"
                           [(ngModel)]="newEvent.description">{{events?.description}}</ion-input>
                       </ion-item>
@@ -57,4 +57,3 @@
         <ion-button type="submit" >Submit</ion-button>
       </form>
 </ion-content>
-

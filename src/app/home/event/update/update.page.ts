@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { QimgImage } from '../../../models/qimg-image';
-import { PictureService } from '../../../services/picture/picture.service'; 
+import { PictureService } from '../../../services/picture/picture.service';
 
 import { Event } from '../../../models/event';
 
@@ -30,7 +30,7 @@ export class UpdatePage implements OnInit {
   }
   ngOnInit() {
     this.GetData();
-    
+
   }
   GetData(){
     this.getRouteParams();

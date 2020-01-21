@@ -49,9 +49,8 @@
   </ion-card>
   </div>
 
-    <div class="chat-footer">
+    <!-- <div class="chat-footer">
       <ion-row id="send-message-form">
-
         <ion-col size="2">
           <ion-avatar>
             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
@@ -69,28 +68,14 @@
         </ion-col>
       </ion-row>
     </div>
-  </ion-grid>
+-->
 
-    <!-- <ion-col size="2">
-      <ion-avatar>
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-      </ion-avatar>
-    </ion-col>
-    <ion-col> -->
-      <!-- <form>
-      <ion-item class="msg-text">
-            <ion-textarea></ion-textarea>
-      </ion-item>
-      </form>
-    </ion-col>
-    <ion-col size="2" id="icon-background">
-      <ion-icon name="send" id="send-icon"></ion-icon>
-    </ion-col> -->
+
     <input type="text" name="wamp-msg" id="wamp-msg" [(ngModel)]="eventContent">
     <button (click)="sendEvent()">Send WAMP Event</button>
 
 
-
+  </ion-grid>
 
 </ion-content>
 <!-- Modal component for Live chat usage -->

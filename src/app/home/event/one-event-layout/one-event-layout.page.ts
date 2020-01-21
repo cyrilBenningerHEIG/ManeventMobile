@@ -39,7 +39,7 @@ export class OneEventLayoutPage implements OnInit {
   eventContent: string;
 
 
-  constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation,private wamp: WampService) {
+  constructor(private http: HttpClient, private router: Router, private auth: AuthService, private activatedRoute: ActivatedRoute,private geolocation: Geolocation,private wamp: WampService, private wampt: WampService) {
     this.mapOptions = {
       layers: [
         tileLayer(
@@ -62,8 +62,13 @@ export class OneEventLayoutPage implements OnInit {
  }
 
  sendEvent() {
-    this.wamp.send('com.herokuapp.manevent.createMsg', [{ "text": this.eventContent }]);
+    this.wamp.send('com.herokuapp.manevent.createMsg', [this.eventContent]);
     console.log(this.eventContent)
+    this.wamp
+         .listen('com.herokuapp.manevent.1')
+         .subscribe(event => {
+           console.log('message recieved !')
+         });
   }
 
 
