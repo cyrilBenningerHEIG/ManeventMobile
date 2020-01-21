@@ -14,12 +14,12 @@ import { map } from 'rxjs/operators';
   templateUrl: './profil.page.html',
   styleUrls: ['./profil.page.scss'],
 })
-export class ProfilPage implements OnInit {
+export class ProfilPage {
   User: User;
   events: Event[];
   constructor(private http: HttpClient, private router: Router, private auth: AuthService) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.GetUser();
 
   }

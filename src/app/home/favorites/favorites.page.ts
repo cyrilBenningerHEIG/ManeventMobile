@@ -11,14 +11,14 @@ import { User } from 'src/app/models/user';
   templateUrl: './favorites.page.html',
   styleUrls: ['./favorites.page.scss'],
 })
-export class FavoritesPage implements OnInit {
+export class FavoritesPage {
   events: Event[];
   User: User;
   NewEvent: Event;
   EventError: boolean;
   constructor(private http: HttpClient, private router: Router,private auth: AuthService) {}
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.GetData();
   }
   GetUser(){

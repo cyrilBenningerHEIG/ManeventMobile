@@ -1,17 +1,12 @@
-<ion-header>
-
-</ion-header>
-
+<ion-header></ion-header>
 <ion-content fullscreen>
-
   <ion-card>
     <div *ngIf="viewMap; else map">
       <img src="{{events?.image}}" />
     </div>
 
     <ng-template #map>
-      <div class="map" leaflet [leafletOptions]="mapOptions" (leafletMapReady)="onMapReady($event)"
-        [leafletLayers]="mapMarkers">
+      <div class="map" leaflet [leafletOptions]="mapOptions" (leafletMapReady)="onMapReady($event)" [leafletLayers]="mapMarkers">
       </div>
     </ng-template>
     <ion-card-header>
@@ -24,8 +19,8 @@
     </ion-card-header>
     <ion-card-content>
       {{events?.description}}</ion-card-content>
-
   </ion-card>
+  
   <div *ngIf="isAdmin">
     <ion-button (click)="delete()" expand="block">Delete Event</ion-button>
     <ion-button [routerLink]="['update', events['_id']]" expand="block">Modify Event</ion-button>
@@ -35,21 +30,23 @@
 
   <ion-grid id="chat">
     <div class="chat-frame">
-      <ion-card  *ngFor="let data of datas">
+      <ion-card *ngFor="let data of datas">
         <ion-row id="message">
           <ion-avatar class="msg-image">
             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
           </ion-avatar>
-        <ion-col>
-          <div class="msg-text">
-            {{data.text}}</div>
-        </ion-col>
-      </ion-row>
-  </ion-card>
-  <ion-item>
-    <ion-input type="text" name="wamp-msg" id="wamp-msg" [(ngModel)]="eventContent"></ion-input>
-    <ion-button (click)="sendMesg()" size="large" color="light" icon-only ><ion-icon name="send"></ion-icon></ion-button>
-  </ion-item>
-  </div>
+          <ion-col>
+            <div class="msg-text">
+              {{data.text}}</div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+      <ion-item>
+        <ion-input type="text" name="wamp-msg" id="wamp-msg" [(ngModel)]="eventContent"></ion-input>
+        <ion-button (click)="sendMesg()" size="large" color="light" icon-only>
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </div>
   </ion-grid>
 </ion-content>
